@@ -5,6 +5,6 @@
 package com.swp.shoesshop.config;
 
 public class MailConfig {
-    public static final String senderMail = "duongncce180374@fpt.edu.vn";
+    public static final String senderMail = "DuongNCCE180374@fpt.edu.vn";
     public static final String senderPassword = "gqkfcksqsuoeytwg";
 }
