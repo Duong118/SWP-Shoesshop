@@ -1,347 +1,414 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-    <!-- Basic -->
-
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-        <!-- Mobile Metas -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">        <!-- Site Metas -->
-        <title>About Us - Premium Shoe Store</title>
-        <meta name="keywords" content="shoes, footwear, premium, about us, company">
-        <meta name="description" content="Learn about our premium shoe store and commitment to quality footwear">
-        <meta name="author" content="Premium Shoe Store">
-
-        <!-- Site Icons -->
         <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
-        <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <!-- Css -->
+        <link rel="stylesheet" href="./dist/styles.css" />
+        <link rel="stylesheet" href="./dist/all.css" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i,700,700i"
+            rel="stylesheet"
+            />
+        <title>Create Product</title>
+        <style>
+            .price-curren {
+                top: 50%;
+                transform: translateY(-32%);
+                right: 12px;
+            }
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <!-- Site CSS -->
-        <link rel="stylesheet" href="css/style.css">
-        <!-- Responsive CSS -->
-        <link rel="stylesheet" href="css/responsive.css">
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="css/custom.css">
-
-        <link rel="stylesheet" href="css/sweetalertAccWarning.css">
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-
+            .show-swp{
+                display: block;
+            }
+            .show-swp-icon{
+                transform: rotate(90deg)
+            }
+        </style>
     </head>
 
-    <body>
-        <!-- Start Main Top -->
-        <div class="main-top">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <div class="custom-select-box">
-                            <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
-                                <option>${sessionScope.LOGIN_USER.points} Points</option>
-                            </select>
-                        </div>
-                        <div class="right-phone-box">
-                            <p>Hotline :- <a href="#"> +87378873548</a></p>
-                        </div>
-                        <c:set var="checkLogin" scope="session" value="${sessionScope.LOGIN_USER}"/>
-                        <c:if test="${checkLogin != null}">
-                            <div class="our-link">
-                                <ul>
-                                    <li><a href="my-account.jsp"><i class="fa fa-user s_color"></i> ${sessionScope.LOGIN_USER.username}</a></li>
-                                    <li><a href="https://facebook.com/" target="_blank"><i class="fas fa-headset"></i>Contact</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                            <div class="login-box">
+    <body <c:if test="${checked}"> onload="myDiscount()"</c:if>
+                                   <c:if test="${checkedvideo}"> onload="myVideo()"</c:if>
+                                   <c:if test="${isDuplicated}"> onload="toggleInput();toggleSelect()"</c:if>
+                                   <c:if test="${PRODUCT_ERROR!=null}"> onload="toggleInput();toggleSelect()"</c:if>
+                                       >
+                                       <!--Container -->
+                                       <div class="mx-auto bg-grey-lightest">
+                                           <!--Screen-->
+                                           <div class="min-h-screen flex flex-col">
+                                               <!--Header Section Starts Here-->
+                                               <header class="bg-nav">
+                                                   <div class="flex justify-between">
+                                                       <div class="p-1 mx-3 inline-flex items-center cursor-pointer">
+                                                           <i
+                                                               class="fas fa-bars pr-2 text-white"
+                                                               onclick="sidebarToggle()"
+                                                               ></i>
+                                                           <h1 class="text-white p-2">Shoes Shop</h1>
+                                                       </div>
+                                                       <div class="p-1 flex flex-row items-center">
+                                                           <!--              <img
+                                                                           class="inline-block h-8 w-8 rounded-full"
+src="https://avatars0.githubusercontent.com/u/4323180?s=460&v=4"
+                                                                           alt=""
+                                                                         />-->
+                                                       </div>
+                                                   </div>
+                                               </header>
+                                               <!--/Header-->
 
-                                <a href="MainController?action=Logout" style="color: #FFFFFF;font-size: 14px;font-weight: 700;text-transform: uppercase">Logout <i class="fas fa-sign-out-alt"></i></a>
-                            </div>
-                        </c:if>
-                        <c:if test="${checkLogin == null}" >
-                            <div class="our-link">
-                                <ul>
-                                    <li>
-                                        <button id="swa" style="color: white; background-color: black; text-transform: uppercase; font-weight: bold">
-                                            <i class="fa fa-user s_color"></i> 
-                                            Account
-                                        </button>
-                                    </li>
-                                    <li><a href="https://facebook.com/" target="_blank"><i class="fas fa-headset"></i> Contact</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                            <div class="login-box" style="margin-right: 20px">
-                                <a href="login.jsp" style="color: white;font-weight: bold">Login/</a>
-                                <a href="register.jsp" style="color: white; position: absolute;font-weight: bold">Register</a>
-                            </div>
-                        </c:if>
-                        <div class="text-slid-box">
-                            <div id="offer-box" class="carouselTicker">
-                                <ul class="offer-box">
-                                    <li>
-                                        <i class="fab fa-opencart"></i> Welcome to the Premium Shoe Store
-                                    </li>
-                                    <li>
-                                        <i class="fab fa-opencart"></i> Here we have various types of pet birds and related accessories
-                                    </li>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Main Top -->
+                                               <div class="flex flex-1">
+                                                   <!--Sidebar-->
+                                                   <aside
+                                                       id="sidebar"
+                                                       class="bg-side-nav w-1/2 md:w-1/6 lg:w-1/6 border-r border-side-nav hidden md:block lg:block"
+                                                       >
+                                                       <div class="flex"></div>
+                                                       <ul class="list-reset flex flex-col">
+                                                           <li class="w-full h-full py-3 px-2 border-b border-light-border">
+                                                               <a
+                                                                   href="Dashboard"
+                                                                   class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline"
+                                                                   >
+                                                                   <i class="fas fa-tachometer-alt float-left mx-2"></i>
+                                                                   Dashboard
+                                                                   <span><i class="fas fa-angle-right float-right"></i></span>
+                                                               </a>
+                                                           </li>
+                                                           <li class="w-full h-full py-3 px-2 border-b border-light-border bg-white">
+                                                               <a
+                                                                   href="ViewProductManagerController"
+                                                                   class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline"
+                                                                   >
+                                                                   <i class="fab fa-wpforms float-left mx-2"></i>
+                                                                   Product
+                                                                   <span><i class="fa fa-angle-right float-right"></i></span>
+                                                               </a>
+</li>
+                                                           <li class="w-full h-full py-3 px-2 border-b border-light-border">
+                                                               <!--href="ViewOrderManagerController"-->
+                                                               <div id="menu">
+                                                                   <a
+                                                                       href="ViewAllOrderController"
+                                                                       class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline"
+                                                                       >
+                                                                       <i class="fas fa-grip-horizontal float-left mx-2"></i>
+                                                                       Order
+                                                                       <span><i class="fa fa-angle-right float-right" id="icon-xoay"></i></span>
+                                                                   </a>
+                                                               </div>
+                                                           </li>
+                                                           <li class="w-full h-full py-3 px-2 border-b border-light-border">
+                                                               <a
+                                                                   href="ViewFeedback"
+                                                                   class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline"
+                                                                   >
+                                                                   <i class="fas fa-table float-left mx-2"></i>
+                                                                   Comment
+                                                                   <span><i class="fa fa-angle-right float-right"></i></span>
+                                                               </a>
+                                                           </li>
+                                                           <li class="w-full h-full py-3 px-2 border-b border-light-border">
+                                                               <a
+                                                                   href="ViewBlogManagerController"
+                                                                   class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline"
+                                                                   >
+                                                                   <i class="fab fa-uikit float-left mx-2"></i>
+                                                                   Post
+<span><i class="fa fa-angle-right float-right"></i></span>
+                                                               </a>
+                                                           </li>
+                                                           <li class="w-full h-full py-3 px-2 border-b border-light-border">
+                                                               <a
+                                                                   href="sendNotiEmail.jsp"
 
-        <!-- Start Main Top -->
-        <header class="main-header">
-            <!-- Start Navigation -->
-            <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
-                <div class="container">
-                    <!-- Start Header Navigation -->
-                    <div class="navbar-header">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                        <a class="navbar-brand" href="/NestSA/"><img src="images/logo.png" class="logo" alt=""></a>
-                    </div>
-                    <!-- End Header Navigation -->
+                                                                   class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline"
+                                                                   >
+                                                                   <i class="fas fa-paper-plane float-left mx-2"></i>
+                                                                   Send Email
+                                                                   <span><i class="fa fa-angle-right float-right"></i></span>
+                                                               </a>
+                                                           </li>
+                                                           <li class="w-full h-full py-3 px-2 border-b border-300-border">
+                                                               <a
+                                                                   href="MainController?action=Logout"
+                                                                   class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline"
+                                                                   >
+                                                                   <i class="fas fa-square-full float-left mx-2"></i>
+                                                                   Logout
+                                                                   <span><i class="fa fa-angle-right float-right"></i></span>
+                                                               </a>
+                                                           </li>
+                                                       </ul>
+                                                   </aside>
+                                                   <!--/Sidebar-->
+                                                   <!--Main-->
+                                                   <main
+                                                       class="bg-white-500 flex-1 p-3 overflow-hidden flex justify-center items-center"
+                                                       >
 
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="navbar-menu">
-                        <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-                            <li class="nav-item"><a class="nav-link" href="MainController?action=Home">Home</a></li>
-                            <li class="nav-item active"><a class="nav-link" href="about.jsp">About</a></li>
-                            <li class="dropdown">
-                                <a href="MainController?action=GetFullProducts" class="nav-link">Products</a>                           
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="MainController?action=GetBlogs">Blog</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact-us.jsp">Contact</a></li>
+                                                       <div class="flex flex-col">
+                                                           <!--Grid Form-->
 
-                        </ul>
-                    </div>
-                    <!-- /.navbar-collapse -->
+                                                           <div class="flex flex-1 flex-col md:flex-row lg:flex-row mx-2">
+                                                               <div
+class="mb-2 border-solid border-gray-300 rounded border shadow-sm w-full"
+                                                                   >
+                                                                   <div
+                                                                       class="bg-gray-200 px-2 py-3 border-solid border-gray-200 border-b"
+                                                                       >
+                                                                        Add a new product
+                                                                   </div>                               
+                                                                   <div class="p-3">
+                                                                       <form class="w-full" action="MainController" onsubmit="return cateAlert()">
+                                                                           <div class="flex flex-wrap -mx-3 mb-6">
+                                                                               <!-- full input -->
+                                                                               <div class="w-full px-3 mb-2">
+                                                                                   <div class="pass-link">
+                                                                                       <a>${requestScope.PRODUCT_ERROR}</a>
+                                                                               </div>
+                                                                           </div>
+                                                                           <div class="w-full md:w-full px-3" style="display:inline-block">
+                                                                               <label
+                                                                                   class="block uppercase tracking-wide text-gray-900 text-sm font-medium mb-1"
+                                                                                   for="name"
+                                                                                   >
+                                                                                   Product name
+                                                                               </label>
+                                                                               <input
+                                                                                   class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600"
+                                                                                   id="name"
+                                                                                   name="name"
+                                                                                   type="text"
+placeholder="Enter the product name"         
+                                                                                   value ="${param.name}"
+                                                                                   required;
+                                                                                   >
+                                                                           </div>
+                                                                           <!-- double input -->
+                                                                           <div class="w-full md:w-1/4 px-3" style="display:inline-block">
+                                                                               <label
+                                                                                   class="block uppercase tracking-wide text-gray-900 text-sm font-medium mb-1"
+                                                                                   for="quantity"
+                                                                                   >
+                                                                                   Quantity
+                                                                               </label>
+                                                                               <input
+                                                                                   class="appearance-none block w-full bg-gray-200 text-grey-darker border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600"
+                                                                                   id="quantity"
+                                                                                   type="number"
+                                                                                   name="quantity"
+                                                                                   placeholder="Enter the product quantity"
+                                                                                   value="${param.quantity}"
+                                                                                   required;
+                                                                                   >
+                                                                           </div>
+                                                                           <div
+                                                                               class="w-full md:w-1/4 px-3 mb-6 md:mb-0 relative"
+                                                                               >
+                                                                               <label
+                                                                                   class="block uppercase tracking-wide text-gray-900 text-sm font-medium mb-1"
+for="originalPrice"
+                                                                                   >
+                                                                                   Price
+                                                                               </label>
+                                                                               <input
+                                                                                   class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600"
+                                                                                   id="originalPrice"
+                                                                                   type="number"
+                                                                                   name="originalPrice"
+                                                                                   placeholder="Enter the product price"
+                                                                                   required
+                                                                                   value="${param.originalPrice}"
+                                                                                   >
+                                                                           </div>
+                                                                           <div class="w-full md:w-1/4 px-3" style="display:inline-block">
+                                                                               <label
+                                                                                   class="block uppercase tracking-wide text-gray-900 text-sm font-medium mb-1"
+                                                                                   for="point"
+                                                                                   required;
+                                                                                   >
+                                                                                   Coin
+                                                                               </label>
+                                                                               <input
+                                                                                   class="appearance-none block w-full bg-gray-200 text-grey-darker border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600"
+                                                                                   id="point"
+                                                                                   type="number"
+                                                                                   name="point"
+placeholder="Enter the coin value for the product"
+                                                                                   required;
+                                                                                   value="${param.point}"
+                                                                                   >
+                                                                           </div> 
+                                                                           <div
+                                                                               class="w-full md:w-1/4 px-3 mb-6 md:mb-0 relative"                                                                                                       
+                                                                               >
+                                                                               <label
+                                                                                   class="block uppercase tracking-wide text-gray-900 text-sm font-medium mb-1"
+                                                                                   for="discountPrice"
+                                                                                   >
+                                                                                   Discount price
+                                                                                   <input type="checkbox" name="dis" id="dis" onclick="myDiscount()" value="checked"<c:if test="${checked}">checked</c:if>>
+                                                                                   </label>
+                                                                                   <input
+                                                                                       class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600"
+                                                                                       id ="discountPrice"
+                                                                                       type="number"
+                                                                                       name="discountPrice"                                     
+                                                                                       placeholder="Enter the discount price"
+                                                                                       style="display:none"
+                                                                                       value="${param.discountPrice}"
+                                                                                   >
+                                                                           </div>
+                                                                           <!--  -->
+<br>
+                                                                           <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                                                                               <label class="block uppercase tracking-wide text-gray-900 text-sm font-medium mb-1" for="catetype">
+                                                                                   Category
+                                                                               </label>
+                                                                               <div class="relative">
+                                                                                   <select class="block appearance-none w-full bg-grey-200 border border-grey-200 text-grey-darker py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-grey" id="catetype" name="catetype">
+                                                                                       <option value="" ${empty param.catetype ? 'selected' : ''} hidden>Chọn</option>
+                                                                                       <option value="Chim" ${param.catetype == 'Chim' ? 'selected' : ''}>Chim</option>
+                                                                                       <option value="Lồng" ${param.catetype == 'Lồng' ? 'selected' : ''}>Lồng</option>
+                                                                                       <option value="Thức ăn" ${param.catetype == 'Thức ăn' ? 'selected' : ''}>Thức ăn</option>
+                                                                                       <option value="Phụ kiện khác" ${param.catetype == 'Phụ kiện khác' ? 'selected' : ''}>Phụ kiện khác</option>
+                                                                                   </select>
+                                                                               </div>
+                                                                           </div>
+                                                                           <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0" id="categoryname" style="visibility: hidden">
+                                                                               <label class="block uppercase tracking-wide text-gray-900 text-sm font-medium mb-1" for="catename">
+                                                                                   Classification <p id="smallCategory" style="display: inline-block"></p>
+                                                                               </label>
+                                                                               <div class="relative">
+<select class="block appearance-none w-full bg-grey-200 border border-grey-200 text-grey-darker py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-grey" id="catename" name="catename">
+                                                                                       <option hidden>Choose</option>
+                                                                                       <c:forEach var="ct" items="${sessionScope.VIEW_CATE}">
+                                                                                           <option class="catenameopt" value="${ct.name}" 
+                                                                                                   <c:choose>
+                                                                                                       <c:when test ="${param.catename=='Khác' && newCate==true}">selected</c:when>
+                                                                                                       <c:otherwise>${param.catename == ct.name ? 'selected' : ''}</c:otherwise> 
+                                                                                                   </c:choose>
+                                                                                                   >${ct.name}</option>
+                                                                                       </c:forEach>
+                                                                                       <option value="Khác" id="other">Other</option>
+                                                                                   </select>
+                                                                               </div>
+                                                                           </div>
+                                                                           <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0" style="visibility: hidden" id="newcatename">
+                                                                               <label class="block uppercase tracking-wide text-gray-900 text-sm font-medium mb-1" for="newcate">
+                                                                                   Other category
+                                                                               </label>
+                                                                               <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600" 
+                                                                                      type="text" name="newcatename" id="newcate" value = "${param.newcatename}" placeholder="Nhập loại khác" 
+                                                                                      >
+                                                                           </div>
+<div
+                                                                               class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-grey-darker"
+                                                                               >                                                  
+                                                                           </div>
+                                                                           <!--  -->
+                                                                           <!-- img -->
+                                                                           <div class="w-full md:w-1/2 px-3">
+                                                                               <label
+                                                                                   class="block uppercase tracking-wide text-gray-900 text-sm font-medium mb-1"
+                                                                                   for="img"
+                                                                                   >
+                                                                                    Image
+                                                                               </label>
+                                                                               <input
+                                                                                   class="appearance-none inline-block w-full bg-gray-200 text-grey-darker border border-gray-200 rounded py-3 px- leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600"
+                                                                                   id="img"
+                                                                                   type="text"
+                                                                                   name="img"
+                                                                                   value="${param.img}"
+                                                                                   placeholder="Enter the product image link"
+                                                                                   style=" padding-left: 1rem; padding-right: 1rem;"
+                                                                                   required;
+                                                                                   >
+                                                                           </div>
+                                                                           <div class="w-full md:w-1/2 px-3">
+                                                                               <label
+                                                                                   class="block uppercase tracking-wide text-gray-900 text-sm font-medium mb-1"
+                                                                                   for="video"
+>
+                                                                                   Video
+                                                                                   <input type="checkbox" name="vid" id="vid" onclick="myVideo()" value="checked"<c:if test="${checked}">checked</c:if>>
+                                                                                   </label>
+                                                                                   <input
+                                                                                       class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600"
+                                                                                       id="videolink"
+                                                                                       type="text"
+                                                                                       name="videolink"
+                                                                                       value="${param.videolink}"
+                                                                                   placeholder="Enter the product video link"
+                                                                                   style=" padding-left: 1rem; padding-right: 1rem; display: none"
+                                                                                   >
+                                                                           </div>
+                                                                           <!-- end double input -->
+                                                                           <div class="w-full flex flex-wrap md:w-1/3 -mx-3 mb-2 px-3" style="margin-left: 0px">                                                  
+                                                                               <br>
+                                                                               <label
+                                                                                   for="shortdescript"
+                                                                                   class="block uppercase tracking-wide text-gray-900 text-sm font-medium mb-1"
+                                                                                   style="margin-top: 10px"
+                                                                                   >Product description</label>
+                                                                               <textarea
+                                                                                   name="shortdescript"
+                                                                                   id="shortdescript"
+                                                                                   rows="4"
+class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600"
+                                                                                   placeholder="Product description"
+                                                                                   required
+                                                                                   >${param.shortdescript}</textarea>
+                                                                           </div>
+                                                                           <div class="w-full flex flex-wrap md:w-2/3 -mx-3 mb-2 px-3" style="margin-left: 12px">                                                  
+                                                                               <label
+                                                                                   for="description"
+                                                                                   class="block uppercase tracking-wide text-gray-900 text-sm font-medium mb-1"
+                                                                                   style="margin-top: 10px"
+                                                                                   >Product details</label>
+                                                                               <textarea
+                                                                                   name="description"
+                                                                                   id="description"
+                                                                                   rows="4"
+                                                                                   class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600"
+                                                                                   placeholder="Product description"
+                                                                                   required
+                                                                                   >${param.description}</textarea>
+                                                                           </div>
+                                                                           <div class="w-full md:w-full px-3" style="display:inline-block">
+                                                                               <button
+                                                                                   type="submit" name="action" value="CreateProduct"
+                                                                                   class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded text-sm px-2 py-1 mb-1 block float-right"
+>
+                                                                                   Confirm</button>
+                                                                           </div>
+                                                                           <!--/Grid Form-->
+                                                                       </div>
+                                                                   </form>
+                                                               </div>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                               </main>
+                                           </div>
 
-                    <!-- Start Atribute Navigation -->
-                    <div class="attr-nav">
-                        <ul>
-                            <li class="side-menu">
-                                <a href="MainController?action=GetCart">
-                                    <i class="fa fa-shopping-cart"></i>
-                                    <span class="badge">${sessionScope.QUANTITY_IN_CART}</span>
-                                    <p>Cart</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- End Atribute Navigation -->
-                </div>
-                <!-- Start Side Menu -->
-                <div class="side">
-                    <a href="#" class="close-side"><i class="fa fa-times"></i></a>
-                    <li class="cart-box">
-                        <ul class="cart-list">
-                            <li>
-                                <a href="#" class="photo"><img src="images/img-pro-01.jpg" class="cart-thumb" alt="" /></a>
-                                <h6><a href="#">Delica omtantur </a></h6>
-                                <p>1x - <span class="price">$80.00</span></p>
-                            </li>
-                            <li>
-                                <a href="#" class="photo"><img src="images/img-pro-02.jpg" class="cart-thumb" alt="" /></a>
-                                <h6><a href="#">Omnes ocurreret</a></h6>
-                                <p>1x - <span class="price">$60.00</span></p>
-                            </li>
-                            <li>
-                                <a href="#" class="photo"><img src="images/img-pro-03.jpg" class="cart-thumb" alt="" /></a>
-                                <h6><a href="#">Agam facilisis</a></h6>
-                                <p>1x - <span class="price">$40.00</span></p>
-                            </li>
-                            <li class="total">
-                                <a href="#" class="btn btn-default hvr-hover btn-cart">Cart</a>
-                                <span class="float-right"><strong>Total</strong>: $180.00</span>
-                            </li>
-                        </ul>
-                    </li>
-                </div>
-                <!-- End Side Menu -->
-            </nav>
-            <!-- End Navigation -->
-        </header>
-        <!-- End Main Top -->
 
-        <!-- Start Top Search -->
-        <div class="top-search">
-            <div class="container">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                    <input type="text" class="form-control" placeholder="Search">
-                    <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
-                </div>
-            </div>
-        </div>
-        <!-- End Top Search -->
+                                           <!--/Main-->
+                                           <!--Footer-->
+                                           <footer class="bg-grey-darkest text-white p-2">
+                                               <div class="flex flex-1 mx-auto">&copy; Shoes Shop</div>
+                                           </footer>
+                                           <!--/footer-->
+                                       </div>
+                                   </div>
 
-        <!-- Start All Title Box -->
-        <div class="all-title-box">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h2>About Us</h2>
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="MainController?action=Home">Home</a></li>
-                            <li class="breadcrumb-item active">About</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End All Title Box -->
-
-        <!-- Start About Page  -->
-        <div class="about-box-main">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="banner-frame"> <img class="img-fluid" src="https://i.pinimg.com/736x/90/fd/a6/90fda65e40c81347683ec2d6db4186e3.jpg" alt="" />
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <h2 class="noo-sh-title-top">Where Do Our Branded Shoes Come From?</h2>
-                        <p>With a philosophy of offering retail products at wholesale prices, Premium Shoe Store not only owns its own production facility but also collaborates with 11 partners across the country. Our shoes are supplied directly from the manufacturers, eliminating intermediary fees. This allows us to commit to delivering the best prices alongside the highest quality to our customers.</p>
-                        
-                        <h2 class="noo-sh-title-top">Our Top Priority</h2>
-                        <p>The mission of Premium Shoe Store is to bring high-quality products and services to the community at extremely attractive prices. We partner with leading brands, reputable companies, and offer products that provide genuine value to consumers.</p>
-                        <p>Every item featured at Premium Shoe Store, available at attractive prices, undergoes strict quality inspections by our experienced team, ensuring you can shop with complete confidence every day.</p>
-                        
-                        <h2 class="noo-sh-title-top">Why Choose Premium Shoe Store?</h2>
-                        <p>Our online shopping platform is not only a destination for affordable, high-quality shoes but also a bridge connecting esteemed brands with consumers. At Premium Shoe Store, our dedicated and professional customer support team is always available to answer all your shopping queries.</p>
-                        <p>Shop with confidence at Premium Shoe Store and enjoy the best combination of price and quality available.</p>
-                    </div>
-                </div>
-              </div>
-        </div>  
-        <!-- End About Page -->
-
-
-        <!--Start Footer-->
-        <footer>
-            <div class="footer-main">
-                <div class="container">
-                    <div class="row">
-                        <!-- Working Hours Section -->
-                        <div class="col-lg-4 col-md-12 col-sm-12">
-                            <div class="footer-top-box">
-                                <h3>Working Hours</h3>
-                                <ul class="list-time">
-                                    <li>Monday - Friday: 08:00am to 05:00pm</li>
-                                    <li>Saturday - Sunday: 10:00am to 08:00pm</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- Newsletter Contact Section -->
-                        <div class="col-lg-4 col-md-12 col-sm-12">
-                            <div class="footer-top-box">
-                                <h3>Contact</h3>
-                                <form class="newsletter-box" action="NotifyEmailController">
-                                    <div class="form-group">
-                                        <input class="" type="email" name="Email" placeholder="Email Address*" />
-                                        <i class="fa fa-envelope"></i>
-                                    </div>
-                                    <button class="btn hvr-hover" type="submit">Subscribe</button>
-                                </form>
-                            </div>
-                        </div>
-                        <!-- Social Media Section -->
-                        <div class="col-lg-4 col-md-12 col-sm-12">
-                            <div class="footer-top-box">
-                                <h3>Social Media</h3>
-                                <p>Our current social media platforms</p>
-                                <ul>
-                                    <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-pinterest-p" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <!-- Contact Information Section -->
-                        <div class="col-lg-4 col-md-12 col-sm-12">
-                            <div class="footer-link-contact">
-                                <h4>Contact Us</h4>
-                                <ul>
-                                    <li>
-                                        <p>
-                                            <i class="fas fa-map-marker-alt"></i>
-                                            Address: 123 Premium Ave, Tech Park,<br>
-                                            Suite 500, Los Angeles, CA, USA
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            <i class="fas fa-phone-square"></i>
-                                            Phone: <a href="tel:+1-888705770">02473001866</a>
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            <i class="fas fa-envelope"></i>
-                                            Email: <a href="mailto:contactinfo@gmail.com">daihocfpt@fpt.edu.vn</a>
-                                        </p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- Google Maps Section -->
-                        <div class="col-lg-8 col-md-12 col-sm-12">
-                            <div class="footer-link-contact">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.123456789!2d105.780000!3d10.045000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313652c123456789%3A0xabcdef1234567890!2sFPT%20University%20Can%20Tho!5e0!3m2!1sen!2s!4v1686756000000" width="100%" height="230" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- End Footer  -->
-
-        <!-- Start copyright  -->
-        <div class="footer-copyright">
-            <p class="footer-company">All Rights Reserved. &copy; 2023 Design By : Team FE
-        </div>
-        <!-- End copyright  -->
-
-        <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
-
-        <!-- ALL JS FILES -->
-        <script src="js/jquery-3.2.1.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <!-- ALL PLUGINS -->
-        <script src="js/jquery.superslides.min.js"></script>
-        <script src="js/bootstrap-select.js"></script>
-        <script src="js/inewsticker.js"></script>
-        <script src="js/bootsnav.js."></script>
-        <script src="js/images-loded.min.js"></script>
-        <script src="js/isotope.min.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/baguetteBox.min.js"></script>
-        <script src="js/form-validator.min.js"></script>
-        <script src="js/contact-form-script.js"></script>
-        <script src="js/custom.js"></script>
-        <script src="js/sweetalert.min.js"></script>
-        <script src="js/sweetalertAccWarning.js"></script>
+                                   <script src="main.js"></script>
+                                   <script src ="js/addeditpro.js"></script>
     </body>
-
 </html>
