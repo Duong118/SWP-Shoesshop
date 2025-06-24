@@ -6,7 +6,7 @@ package com.swp.birdwebshop.constant;
 
 /**
  *
- * @author huynh
+ * @author LamVHCE171024
  */
 public enum OrderStatus {
     SUCCESS,
