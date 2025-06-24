@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  *
- * @author huynh
+ * @author Duongncce180374
  */
 public class SiteURL {
     public static String getSiteURL(HttpServletRequest request) {
