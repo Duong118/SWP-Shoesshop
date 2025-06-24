@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/swp-birdwebshop">
-  <Resource auth="Container" driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver" maxIdle="20" maxTotal="100" maxWaitMillis="10000" name="DataSource" password="12345" type="javax.sql.DataSource" url="jdbc:sqlserver://localhost:1433;databaseName=swp_shoeshop" username="sa">
-    </Resource>
+  <Resource
+    name="DataSource"
+    auth="Container"
+    type="javax.sql.DataSource"
+    driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    url="jdbc:sqlserver://localhost:1433;databaseName=swp_shoeshop"
+    username="sa"
+    password="123456"
+    maxTotal="100"
+    maxIdle="20"
+    maxWaitMillis="10000"
+  />
 </Context>
