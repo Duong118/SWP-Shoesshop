@@ -19,7 +19,7 @@ import javax.crypto.spec.SecretKeySpec;
 import javax.servlet.http.HttpServletRequest;
 /**
  *
- * @author huynh
+ * @author Duongncce180374
  */
 public class VNPayConfig {
     
