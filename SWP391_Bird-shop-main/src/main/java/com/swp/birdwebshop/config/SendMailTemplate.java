@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author k0949652212
+ * @author LinhPTCE181333
  */
 @WebServlet(name = "SendMailTemplate", urlPatterns = {"/SendMailTemplate"})
 public class SendMailTemplate extends HttpServlet {
