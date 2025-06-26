@@ -16,7 +16,7 @@ import javax.naming.NamingException;
 
 /**
  *
- * @author huynh
+ * @author Thuong
  */
 public class ShoeSizeDAOImpl {    private static final String GET_ALL_SIZES = "SELECT [id], [size_name], [size_type], [sort_order], [is_active] FROM shoe_size WHERE is_active = 1 ORDER BY sort_order";
     private static final String GET_SIZE_BY_ID = "SELECT [id], [size_name], [size_type], [sort_order], [is_active] FROM shoe_size WHERE id = ?";

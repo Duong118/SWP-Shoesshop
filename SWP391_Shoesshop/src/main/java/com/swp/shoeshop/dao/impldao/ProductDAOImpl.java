@@ -17,7 +17,7 @@ import java.util.List;
 
 /**
  *
- * @author huynh
+ * @author Thuong
  */
 public class ProductDAOImpl {
 
