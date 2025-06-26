@@ -2,45 +2,45 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
+package com.swp.shoeshop.controller;
 
+import com.swp.shoeshop.dao.impldao.ProductDAOImpl;
+import com.swp.shoeshop.model.Product;
+import com.swp.shoeshop.utils.json.JSONConverter;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Admin
+ * @author 
  */
-@WebServlet(name = "NewServlet", urlPatterns = {"/NewServlet"})
-public class NewServlet extends HttpServlet {
+public class ProductsByCateIDController extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    private static final String ERROR = "error.jsp";
+    private static final String SUCCESS = "shop.jsp";
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet NewServlet</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet NewServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        String url = ERROR;
+        try {
+            int id = Integer.parseInt(request.getParameter("id"));
+            ProductDAOImpl proDAO = new ProductDAOImpl();
+
+            List<Product> producstByCateID = proDAO.getProductsByCateID(id);
+
+            request.setAttribute("VIEW_PRODUCTS", producstByCateID);
+            request.setAttribute("VIEW_PRODUCTS_JSON", JSONConverter.toJSON(producstByCateID));
+            request.setAttribute("ticked", id);
+            url = SUCCESS;
+            
+        } catch (Exception e) {
+        } finally {
+            request.getRequestDispatcher(url).forward(request, response);
         }
     }
 
