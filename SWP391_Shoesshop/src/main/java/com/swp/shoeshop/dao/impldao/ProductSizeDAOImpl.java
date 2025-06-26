@@ -16,7 +16,7 @@ import javax.naming.NamingException;
 
 /**
  *
- * @author huynh
+ * @author Thuong
  */
 public class ProductSizeDAOImpl {
       private static final String GET_PRODUCT_SIZES_BY_PRODUCT_ID = 

@@ -11,7 +11,7 @@ import javax.persistence.Id;
 
 /**
  *
- * @author huynh
+ * @author Thuong
  */
 public class ShoeSize implements Serializable {
 
