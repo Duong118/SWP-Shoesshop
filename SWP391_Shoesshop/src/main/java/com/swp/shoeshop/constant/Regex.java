@@ -6,7 +6,11 @@ package com.swp.shoeshop.constant;
 
 /**
  *
- * @author huynh
+
+ * @author DuongNCCE180374
+
+
+
  */
 public class Regex {
     public static final String MAIL_PATTERN = "^[a-zA-Z][a-zA-Z0-9]+@[a-zA-Z]{1,}(\\.[a-zA-Z]{1,})+$";
