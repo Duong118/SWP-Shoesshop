@@ -10,7 +10,10 @@ import java.util.regex.Pattern;
 
 /**
  *
- * @author 
+
+ * @author ThuongNVCE181966
+
+
  */
 public class StringUtil {
 public static String removeAccent(String s) {
