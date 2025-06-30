@@ -54,10 +54,7 @@
         <servlet-name>SearchOrderController</servlet-name>
         <servlet-class>com.swp.shoeshop.controller.viewordercontroller.SearchOrderController</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>GoogleLoginController</servlet-name>
-        <servlet-class>com.swp.shoeshop.controller.GoogleLoginController</servlet-class>
-    </servlet>
+
     <servlet>
         <servlet-name>SortByPriceController</servlet-name>
         <servlet-class>com.swp.shoeshop.controller.SortByPriceController</servlet-class>
@@ -70,6 +67,36 @@
         <servlet-name>GetFullProductsController</servlet-name>
         <servlet-class>com.swp.shoeshop.controller.productcontroller.GetFullProductsController</servlet-class>
     </servlet>
+    
+    <servlet>
+        <servlet-name>UpdateProfileController</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.UpdateProfileController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ForgotPassController</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.ForgotPassController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChangePasswordController</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.ChangePasswordController</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>ViewFeedbackController</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.feedbackcontroller.ViewFeedbackController</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>DeleteFeedback</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.feedbackcontroller.DeleteFeedback</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateFeedback</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.feedbackcontroller.CreateFeedback</servlet-class>
+    </servlet>
+    
+    
+    
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
         <url-pattern>/MainController</url-pattern>
@@ -135,10 +162,7 @@
         <url-pattern>/UpdateCartController</url-pattern>
     </servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>GoogleLoginController</servlet-name>
-        <url-pattern>/GoogleLoginController</url-pattern>
-    </servlet-mapping>
+
 
     <servlet-mapping>
         <servlet-name>SortByPriceController</servlet-name>
@@ -152,10 +176,38 @@
     </servlet-mapping>
 
     <servlet-mapping>
+        <servlet-name>UpdateProfileController</servlet-name>
+        <url-pattern>/UpdateProfileController</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ForgotPassController</servlet-name>
+        <url-pattern>/ForgotPassController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangePasswordController</servlet-name>
+        <url-pattern>/ChangePasswordController</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
         <servlet-name>GetFullProductsController</servlet-name>
         <url-pattern>/GetFullProductsController</url-pattern>
     </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>DeleteFeedback</servlet-name>
+        <url-pattern>/DeleteFeedback</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateFeedback</servlet-name>
+        <url-pattern>/CreateFeedback</url-pattern>
+    </servlet-mapping>
+    
+    
+    
+
     <session-config>
+        
         <session-timeout>
             30
         </session-timeout>
