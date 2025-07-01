@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+
+    <servlet>
+        <servlet-name>MainController</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.MainController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HomeController</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.HomeController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.LoginController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SignupController</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.SignupController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutController</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.LogoutController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CategoryController</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.CategoryController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CategoryTypeController</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.CategoryTypeController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProductsByCateIDController</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.ProductsByCateIDController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DetailController</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.DetailController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddToCartController</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.AddToCartController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetCartController</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.GetCartController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateCartController</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.UpdateCartController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>SearchOrderController</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.viewordercontroller.SearchOrderController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>SortByPriceController</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.SortByPriceController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveFromCartController</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.RemoveFromCartController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetFullProductsController</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.productcontroller.GetFullProductsController</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>UpdateProfileController</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.UpdateProfileController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ForgotPassController</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.ForgotPassController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChangePasswordController</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.ChangePasswordController</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>ViewFeedbackController</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.feedbackcontroller.ViewFeedbackController</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>DeleteFeedback</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.feedbackcontroller.DeleteFeedback</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateFeedback</servlet-name>
+        <servlet-class>com.swp.shoeshop.controller.feedbackcontroller.CreateFeedback</servlet-class>
+    </servlet>
+    
+    
+    
+    <servlet-mapping>
+        <servlet-name>MainController</servlet-name>
+        <url-pattern>/MainController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeController</servlet-name>
+        <url-pattern>/HomeController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/LoginController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignupController</servlet-name>
+        <url-pattern>/SignupController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutController</servlet-name>
+        <url-pattern>/LogoutController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CategoryController</servlet-name>
+        <url-pattern>/CategoryController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CategoryTypeController</servlet-name>
+        <url-pattern>/CategoryTypeController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductsByCateIDController</servlet-name>
+        <url-pattern>/ProductsByCateIDController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetailController</servlet-name>
+        <url-pattern>/DetailController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddToCartController</servlet-name>
+        <url-pattern>/AddToCartController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetCartController</servlet-name>
+        <url-pattern>/GetCartController</url-pattern>
+    </servlet-mapping>
+
+    
+    <servlet-mapping>
+        <servlet-name>SearchProductController</servlet-name>
+        <url-pattern>/SearchProductController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewDetailProductController</servlet-name>
+        <url-pattern>/ViewDetailProductController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SortProductController</servlet-name>
+        <url-pattern>/SortProductController</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet-mapping>
+        <servlet-name>UpdateCartController</servlet-name>
+        <url-pattern>/UpdateCartController</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet-mapping>
+        <servlet-name>SortByPriceController</servlet-name>
+        <url-pattern>/SortByPriceController</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet-mapping>
+        <servlet-name>RemoveFromCartController</servlet-name>
+        <url-pattern>/RemoveFromCartController</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UpdateProfileController</servlet-name>
+        <url-pattern>/UpdateProfileController</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ForgotPassController</servlet-name>
+        <url-pattern>/ForgotPassController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangePasswordController</servlet-name>
+        <url-pattern>/ChangePasswordController</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>GetFullProductsController</servlet-name>
+        <url-pattern>/GetFullProductsController</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>DeleteFeedback</servlet-name>
+        <url-pattern>/DeleteFeedback</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateFeedback</servlet-name>
+        <url-pattern>/CreateFeedback</url-pattern>
+    </servlet-mapping>
+    
+    
+    
+
+    <session-config>
+        
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <resource-ref>
+        <res-ref-name>DataSource</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+        <res-sharing-scope>Shareable</res-sharing-scope>
+    </resource-ref>
+    <welcome-file-list>
+        <welcome-file>HomeController</welcome-file>
+    </welcome-file-list>
+</web-app>
