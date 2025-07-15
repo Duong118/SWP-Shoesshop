@@ -1,5 +1,3 @@
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -10,8 +8,7 @@
 
     <body>
 
-        <button class="first">Account</button>
-
+        <button class="first">Tài khoản</button>
 
         <script src="js/sweetalert2Comment.js"></script>
         <script src="js/sweetalert2.min.js"></script>
