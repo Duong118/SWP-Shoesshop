@@ -9,8 +9,8 @@
     <head></head>
 
     <body>
-        
-        <button class="first">    Account                                       </button>
+
+        <button class="first">Account</button>
 
 
         <script src="js/sweetalert2Comment.js"></script>
