@@ -34,6 +34,9 @@ public class Product implements Serializable{
     private Date createdDate;
     private boolean hot;
 
+    // Transient field for calculated total quantity from product_size table
+    private int quantity;
+
     @Enumerated(EnumType.STRING)
     private ProductStatus status;
 
@@ -323,6 +326,14 @@ public class Product implements Serializable{
 
     public void setHot(boolean hot) {
         this.hot = hot;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
 }

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : Jul 1, 2025, 1:04:17 PM
-    Author     : pham tan linh
---%>
-
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -39,10 +33,7 @@
         <link rel="stylesheet" href="css/custom.css">
 
         <link rel="stylesheet" href="css/sweetalertAccWarning.css">
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+
         <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
         <style>
             .swp-pagination{
@@ -143,334 +134,334 @@
                                     <li><a href="https://facebook.com/" target="_blank"><i class="fas fa-headset"></i> Contact Us</a></li>
                                 </ul>
                             </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <div class="login-box">
-                            <a href="MainController?action=Logout" style="color: #FFFFFF;font-size: 14px;font-weight: 700;text-transform: uppercase">Logout <i class="fas fa-sign-out-alt"></i></a>
                         </div>
-                    </c:if>                        <c:if test="${sessionScope.LOGIN_USER == null}">
-                    <div class="our-link">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="login-box">
+                                <a href="MainController?action=Logout" style="color: #FFFFFF;font-size: 14px;font-weight: 700;text-transform: uppercase">Logout <i class="fas fa-sign-out-alt"></i></a>
+                            </div>
+                        </c:if>                        <c:if test="${sessionScope.LOGIN_USER == null}">
+                            <div class="our-link">
+                                <ul>
+                                    <li>
+                                        <button id="swa" style="color: white; background-color: black; text-transform: uppercase; font-weight: bold">
+                                            <i class="fa fa-user s_color"></i> 
+                                            Account
+                                        </button>
+                                    </li>
+                                    <li><a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="login-box" style="margin-right: 20px">
+                                <a href="login.jsp" style="color: white;font-weight: bold">Sign In/</a>
+                                <a href="register.jsp" style="color: white; position: absolute;font-weight: bold">Sign Up</a>
+
+                            </div>
+                        </c:if>
+                        <div class="text-slid-box">
+                            <div id="offer-box" class="carouselTicker">
+                                <ul class="offer-box">
+                                    <li>
+                                        <i class="fab fa-opencart"></i> Welcome to Premium Shoe Store
+                                    </li>
+                                    <li>
+                                        <i class="fab fa-opencart"></i> Discover our exclusive collection of premium footwear
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Main Top -->
+
+        <!-- Start Main Top -->
+        <header class="main-header">
+            <!-- Start Navigation -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
+                <div class="container">
+                    <!-- Start Header Navigation -->
+                    <div class="navbar-header">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu"
+                                aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <a class="navbar-brand" href=""><img src="images/logo.png" class="logo" alt=""></a>
+                    </div>
+                    <!-- End Header Navigation -->
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="navbar-menu">                        <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
+                            <li class="nav-item active"><a class="nav-link" href="MainController?action=Home">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="about.jsp">About Us</a></li>
+                            <li class="dropdown">
+                                <a href="MainController?action=GetFullProducts" class="nav-link">Shoes</a>                           
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="MainController?action=GetBlogs">Blog</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact-us.jsp">Contact</a></li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+
+                    <!-- Start Atribute Navigation -->
+                    <div class="attr-nav">
                         <ul>
-                            <li>
-                                <button id="swa" style="color: white; background-color: black; text-transform: uppercase; font-weight: bold">
-                                    <i class="fa fa-user s_color"></i> 
-                                    Account
-                                </button>
+                            <li class="side-menu">                                <a href="MainController?action=GetCart">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <span class="badge">${sessionScope.QUANTITY_IN_CART}</span>
+                                    <p>Shopping Cart</p>
+                                </a>
                             </li>
-                            <li><a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
                         </ul>
                     </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <div class="login-box" style="margin-right: 20px">
-                    <a href="login.jsp" style="color: white;font-weight: bold">Sign In/</a>
-                    <a href="register.jsp" style="color: white; position: absolute;font-weight: bold">Sign Up</a>
-
+                    <!-- End Atribute Navigation -->
                 </div>
-                </c:if>
-                <div class="text-slid-box">
-                    <div id="offer-box" class="carouselTicker">
-                        <ul class="offer-box">
-                            <li>
-                                <i class="fab fa-opencart"></i> Welcome to Premium Shoe Store
-                            </li>
-                            <li>
-                                <i class="fab fa-opencart"></i> Discover our exclusive collection of premium footwear
-                            </li>
-                        </ul>
+            </nav>
+            <!-- End Navigation -->
+        </header>
+        <!-- End Main Top -->
+        <!--         Start Slider 
+        -->        <div id="slides-shop" class="cover-slides">
+            <ul class="slides-container">
+                <li class="text-center">
+                    <img src="https://cdn.pixabay.com/photo/2016/11/19/18/06/feet-1840619_1280.jpg" alt="">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1 class="m-b-20"><strong>Welcome to <br> Shoe Shop</strong></h1>
+                                <p class="m-b-40">Specializing in providing shoe products</p>
+                                <p><a class="btn hvr-hover" href="about.jsp">Learn more</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </li>                <li class="text-center">
+                    <img src="https://cdn.shopify.com/s/files/1/0263/6270/8027/files/tenshi-air-max-zero.jpg?v=1589159833" alt="">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1 class="m-b-20"><strong>Welcome to <br> Premium Shoe Store</strong></h1>
+                                <p class="m-b-40">Step into style with our exclusive footwear collection</p>
+                                <p><a class="btn hvr-hover" href="about.jsp">Discover More</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </li>                <li class="text-center">
+                    <img src="https://i.ebayimg.com/images/g/J~YAAOSwaqFneS16/s-l1200.jpg" alt="">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1 class="m-b-20"><strong>Premium Footwear <br> For Every Occasion</strong></h1>
+                                <p class="m-b-40">From casual sneakers to formal dress shoes</p>
+                                <p><a class="btn hvr-hover" href="about.jsp">Shop Now</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </li>                <li class="text-center">
+                    <img src="https://static.ftshp.digital/img/p/6/1/3/8/6/61386.jpg" alt="">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1 class="m-b-20"><strong>Athletic Excellence <br> Performance Shoes</strong></h1>
+                                <p class="m-b-40">Professional athletic footwear for peak performance</p>
+                                <p><a class="btn hvr-hover" href="about.jsp">Explore Collection</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="slides-navigation">
+                <a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                <a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+            </div>
+        </div><!--
+         End Slider -->
+
+        <!--  Products popular  -->
+        <div class="products-box">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">                        <div class="title-all text-center">
+                            <h1>Featured Shoes</h1>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div>
+                    <div class="splide hot_bird" role="group" aria-label="Splide Basic HTML Example">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+                                <c:forEach items="${requestScope.TOP7_HOT_BIRD}" var="o">
+                                    <li class="splide__slide">
+                                        <div class="product-card"  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; margin: 0 auto">
+                                            <div class="product-front">
+                                                <img src="${o.image}" alt="" />
+                                                <div class="image_overlay"></div>
+                                                <div class="view_details"><a href="MainController?action=Detail&pid=${o.id}">View details</a></div>
+                                                <div class="stats">
+                                                    <div class="stats-container">
+                                                        <span class="product_name">${o.name}</span><br>
+                                                        <span class="product_price">
+                                                            <c:if test="${o.originalPrice != o.discountPrice}">
+                                                                <del style="margin-right: 5px">
+                                                                    <c:set var="pri" value="${o.originalPrice}"/>
+                                                                    <fmt:setLocale value="vi_VN"/>
+                                                                    <fmt:formatNumber value="${pri}" type="currency"/>
+                                                                </del>
+                                                            </c:if>
+                                                            <span style="background: #16c6c6; color: white; padding: 5px; border-radius: 5px">
+                                                                <c:set var="pri" value="${o.discountPrice}"/>
+                                                                <fmt:setLocale value="vi_VN"/>
+                                                                <fmt:formatNumber value="${pri}" type="currency"/>
+                                                            </span>
+                                                        </span>
+                                                        <p style="margin-bottom: 20px">
+                                                            <c:if test="${o.status == 'INSTOCK'}"><span class="text-success" style="font-weight: 700; font-size: 16px">In stock</span></c:if>
+                                                            <c:if test="${o.status == 'OUTOFSTOCK'}"><span class="text-danger" style="font-weight: 700; font-size: 16px">Out of stock</span></c:if>
+                                                            </p>
+                                                            <div class="product-options">
+                                                                <form action="AddToCartController" method="POST">
+                                                                    <input type="hidden" name="id" value="${o.id}">
+                                                                <input type="hidden" name="name" value="${o.name}">
+                                                                <input type="hidden" name="price" value="${o.originalPrice}">
+                                                                <input type="hidden" name="discount_price" value="${o.discountPrice}">
+                                                                <input type="hidden" name="point" value="${o.point}">
+                                                                <input type="hidden" name="image" value="${o.image}">
+                                                                <input type="hidden" name="quantity" value="${o.quantity}">
+                                                                <input type="hidden" name="buyQuantity" value="1"/>
+                                                                <button type="submit" class="button" name="action" value="home">
+                                                                    Add to cart
+                                                                    <div class="button__horizontal"></div>
+                                                                    <div class="button__vertical"></div>
+                                                                </button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </c:forEach>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="splide hot_cage" role="group" aria-label="Splide Basic HTML Example">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+                                <c:forEach items="${requestScope.TOP7_HOT_CAGE}" var="o">
+                                    <li class="splide__slide">
+                                        <div class="product-card"  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; margin: 0 auto">
+                                            <div class="product-front">
+                                                <img src="${o.image}" alt="" />
+                                                <div class="image_overlay"></div>
+                                                <div class="view_details"><a href="MainController?action=Detail&pid=${o.id}">View details</a></div>
+                                                <div class="stats">
+                                                    <div class="stats-container">
+                                                        <span class="product_name">${o.name}</span><br>
+                                                        <span class="product_price">
+                                                            <c:if test="${o.originalPrice != o.discountPrice}">
+                                                                <del style="margin-right: 5px">
+                                                                    <c:set var="pri" value="${o.originalPrice}"/>
+                                                                    <fmt:setLocale value="vi_VN"/>
+                                                                    <fmt:formatNumber value="${pri}" type="currency"/>
+                                                                </del>
+                                                            </c:if>
+                                                            <span style="background: #16c6c6; color: white; padding: 5px; border-radius: 5px">
+                                                                <c:set var="pri" value="${o.discountPrice}"/>
+                                                                <fmt:setLocale value="vi_VN"/>
+                                                                <fmt:formatNumber value="${pri}" type="currency"/>
+                                                            </span>
+                                                        </span>
+                                                        <p style="margin-bottom: 20px">
+                                                            <c:if test="${o.status == 'INSTOCK'}"><span class="text-success" style="font-weight: 700; font-size: 16px">In stock</span></c:if>
+                                                            <c:if test="${o.status == 'OUTOFSTOCK'}"><span class="text-danger" style="font-weight: 700; font-size: 16px">Out of stock</span></c:if>
+                                                            </p>
+                                                            <div class="product-options">
+                                                                <form action="AddToCartController" method="POST">
+                                                                    <input type="hidden" name="id" value="${o.id}">
+                                                                <input type="hidden" name="name" value="${o.name}">
+                                                                <input type="hidden" name="price" value="${o.originalPrice}">
+                                                                <input type="hidden" name="discount_price" value="${o.discountPrice}">
+                                                                <input type="hidden" name="point" value="${o.point}">
+                                                                <input type="hidden" name="image" value="${o.image}">
+                                                                <input type="hidden" name="quantity" value="${o.quantity}">
+                                                                <input type="hidden" name="buyQuantity" value="1"/>
+                                                                <button type="submit" class="button" name="action" value="home">
+                                                                    Add to cart
+                                                                    <div class="button__horizontal"></div>
+                                                                    <div class="button__vertical"></div>
+                                                                </button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </c:forEach>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<!-- End Main Top -->
+        <!-- End Products popular  -->
+        <!--  New Products  -->
+        <!-- End New Products   -->
 
-<!-- Start Main Top -->
-<header class="main-header">
-    <!-- Start Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
-        <div class="container">
-            <!-- Start Header Navigation -->
-            <div class="navbar-header">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu"
-                        aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand" href=""><img src="images/logo.png" class="logo" alt=""></a>
-            </div>
-            <!-- End Header Navigation -->
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="navbar-menu">                        <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-                    <li class="nav-item active"><a class="nav-link" href="MainController?action=Home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.jsp">About Us</a></li>
-                    <li class="dropdown">
-                        <a href="MainController?action=GetFullProducts" class="nav-link">Shoes</a>                           
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="MainController?action=GetBlogs">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact-us.jsp">Contact</a></li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
 
-            <!-- Start Atribute Navigation -->
-            <div class="attr-nav">
-                <ul>
-                    <li class="side-menu">                                <a href="MainController?action=GetCart">
-                            <i class="fa fa-shopping-cart"></i>
-                            <span class="badge">${sessionScope.QUANTITY_IN_CART}</span>
-                            <p>Shopping Cart</p>
-                        </a>
-                    </li>
-                </ul>
+
+        <!-- Start Categories  -->
+        <div class="categories-shop">
+            <div class="container">                <div class="title-all text-center">
+                    <h1>Shop by Category</h1>
+                </div>
+                <div class="row justify-content-center display-flex  ">                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                        <div class="shop-cat-box">
+                            <img class="img-fluid" style="height: 250px" src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=500" alt="" />
+                            <a class="btn hvr-hover" href="MainController?action=CategoryType&type=Sneakers">Sneakers</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                        <div class="shop-cat-box">
+                            <img class="img-fluid" style="height: 250px" src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=500" alt="" />
+                            <a class="btn hvr-hover" href="MainController?action=CategoryType&type=Boots">Boots</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                        <div class="shop-cat-box">
+                            <img class="img-fluid" style="height: 250px" src="https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=500" alt="" />
+                            <a class="btn hvr-hover" href="MainController?action=CategoryType&type=Formal">Formal Shoes</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                        <div class="shop-cat-box">
+                            <img class="img-fluid" style="height: 250px" src="https://i.ytimg.com/vi/f8KeA2Q3ZgM/maxresdefault.jpg" alt="" />
+                            <a class="btn hvr-hover" href="MainController?action=CategoryType&type=Phụ kiện khác">Other accessories</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- End Atribute Navigation -->
         </div>
-    </nav>
-    <!-- End Navigation -->
-</header>
-<!-- End Main Top -->
-<!--         Start Slider 
--->        <div id="slides-shop" class="cover-slides">
-    <ul class="slides-container">
-        <li class="text-center">
-            <img src="https://cdn.pixabay.com/photo/2016/11/19/18/06/feet-1840619_1280.jpg" alt="">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="m-b-20"><strong>Welcome to <br> Shoe Shop</strong></h1>
-                        <p class="m-b-40">Specializing in providing shoe products</p>
-                        <p><a class="btn hvr-hover" href="about.jsp">Learn more</a></p>
+
+        <c:forEach items="${requestScope.LATEST_PRODUCTS}" var="pd">
+        <li class="splide__slide">
+            <div class="col-lg-12 col-md-12 special-grid best-seller">
+                <div class="products-single fix">
+                    <div class="box-img-hover">
+                        <img src="${pd.image}" class="img-fluid" alt="Image" style="width: 100%; height: 200px; object-fit: cover">
                     </div>
-                </div>
-            </div>
-        </li>                <li class="text-center">
-            <img src="https://cdn.shopify.com/s/files/1/0263/6270/8027/files/tenshi-air-max-zero.jpg?v=1589159833" alt="">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="m-b-20"><strong>Welcome to <br> Premium Shoe Store</strong></h1>
-                        <p class="m-b-40">Step into style with our exclusive footwear collection</p>
-                        <p><a class="btn hvr-hover" href="about.jsp">Discover More</a></p>
-                    </div>
-                </div>
-            </div>
-        </li>                <li class="text-center">
-            <img src="https://i.ebayimg.com/images/g/J~YAAOSwaqFneS16/s-l1200.jpg" alt="">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="m-b-20"><strong>Premium Footwear <br> For Every Occasion</strong></h1>
-                        <p class="m-b-40">From casual sneakers to formal dress shoes</p>
-                        <p><a class="btn hvr-hover" href="about.jsp">Shop Now</a></p>
-                    </div>
-                </div>
-            </div>
-        </li>                <li class="text-center">
-            <img src="https://static.ftshp.digital/img/p/6/1/3/8/6/61386.jpg" alt="">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="m-b-20"><strong>Athletic Excellence <br> Performance Shoes</strong></h1>
-                        <p class="m-b-40">Professional athletic footwear for peak performance</p>
-                        <p><a class="btn hvr-hover" href="about.jsp">Explore Collection</a></p>
+                    <div class="why-text">
+                        <h4>${pd.name}</h4>
                     </div>
                 </div>
             </div>
         </li>
-    </ul>
-    <div class="slides-navigation">
-        <a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
-        <a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
-    </div>
-</div><!--
- End Slider -->
-
-<!--  Products popular  -->
-<div class="products-box">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">                        <div class="title-all text-center">
-                    <h1>Featured Shoes</h1>
-
-                </div>
-
-            </div>
-        </div>
-        <div>
-            <div class="splide hot_bird" role="group" aria-label="Splide Basic HTML Example">
-                <div class="splide__track">
-                    <ul class="splide__list">
-                        <c:forEach items="${requestScope.TOP7_HOT_BIRD}" var="o">
-                            <li class="splide__slide">
-                                <div class="product-card"  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; margin: 0 auto">
-                                    <div class="product-front">
-                                        <img src="${o.image}" alt="" />
-                                        <div class="image_overlay"></div>
-                                        <div class="view_details"><a href="MainController?action=Detail&pid=${o.id}">View details</a></div>
-                                        <div class="stats">
-                                            <div class="stats-container">
-                                                <span class="product_name">${o.name}</span><br>
-                                                <span class="product_price">
-                                                    <c:if test="${o.originalPrice != o.discountPrice}">
-                                                        <del style="margin-right: 5px">
-                                                            <c:set var="pri" value="${o.originalPrice}"/>
-                                                            <fmt:setLocale value="vi_VN"/>
-                                                            <fmt:formatNumber value="${pri}" type="currency"/>
-                                                        </del>
-                                                    </c:if>
-                                                    <span style="background: #16c6c6; color: white; padding: 5px; border-radius: 5px">
-                                                        <c:set var="pri" value="${o.discountPrice}"/>
-                                                        <fmt:setLocale value="vi_VN"/>
-                                                        <fmt:formatNumber value="${pri}" type="currency"/>
-                                                    </span>
-                                                </span>
-                                                <p style="margin-bottom: 20px">
-                                                <c:if test="${o.status == 'INSTOCK'}"><span class="text-success" style="font-weight: 700; font-size: 16px">In stock</span></c:if>
-                                                <c:if test="${o.status == 'OUTOFSTOCK'}"><span class="text-danger" style="font-weight: 700; font-size: 16px">Out of stock</span></c:if>
-                                                </p>
-                                                <div class="product-options">
-                                                    <form action="AddToCartController" method="POST">
-                                                        <input type="hidden" name="id" value="${o.id}">
-                                                        <input type="hidden" name="name" value="${o.name}">
-                                                        <input type="hidden" name="price" value="${o.originalPrice}">
-                                                        <input type="hidden" name="discount_price" value="${o.discountPrice}">
-                                                        <input type="hidden" name="point" value="${o.point}">
-                                                        <input type="hidden" name="image" value="${o.image}">
-                                                        <input type="hidden" name="quantity" value="${o.quantity}">
-                                                        <input type="hidden" name="buyQuantity" value="1"/>
-                                                        <button type="submit" class="button" name="action" value="home">
-                                                            Add to cart
-                                                            <div class="button__horizontal"></div>
-                                                            <div class="button__vertical"></div>
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </c:forEach>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="splide hot_cage" role="group" aria-label="Splide Basic HTML Example">
-                <div class="splide__track">
-                    <ul class="splide__list">
-                        <c:forEach items="${requestScope.TOP7_HOT_CAGE}" var="o">
-                            <li class="splide__slide">
-                                <div class="product-card"  style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; margin: 0 auto">
-                                    <div class="product-front">
-                                        <img src="${o.image}" alt="" />
-                                        <div class="image_overlay"></div>
-                                        <div class="view_details"><a href="MainController?action=Detail&pid=${o.id}">View details</a></div>
-                                        <div class="stats">
-                                            <div class="stats-container">
-                                                <span class="product_name">${o.name}</span><br>
-                                                <span class="product_price">
-                                                    <c:if test="${o.originalPrice != o.discountPrice}">
-                                                        <del style="margin-right: 5px">
-                                                            <c:set var="pri" value="${o.originalPrice}"/>
-                                                            <fmt:setLocale value="vi_VN"/>
-                                                            <fmt:formatNumber value="${pri}" type="currency"/>
-                                                        </del>
-                                                    </c:if>
-                                                    <span style="background: #16c6c6; color: white; padding: 5px; border-radius: 5px">
-                                                        <c:set var="pri" value="${o.discountPrice}"/>
-                                                        <fmt:setLocale value="vi_VN"/>
-                                                        <fmt:formatNumber value="${pri}" type="currency"/>
-                                                    </span>
-                                                </span>
-                                                <p style="margin-bottom: 20px">
-                                                <c:if test="${o.status == 'INSTOCK'}"><span class="text-success" style="font-weight: 700; font-size: 16px">In stock</span></c:if>
-                                                <c:if test="${o.status == 'OUTOFSTOCK'}"><span class="text-danger" style="font-weight: 700; font-size: 16px">Out of stock</span></c:if>
-                                                </p>
-                                                <div class="product-options">
-                                                    <form action="AddToCartController" method="POST">
-                                                        <input type="hidden" name="id" value="${o.id}">
-                                                        <input type="hidden" name="name" value="${o.name}">
-                                                        <input type="hidden" name="price" value="${o.originalPrice}">
-                                                        <input type="hidden" name="discount_price" value="${o.discountPrice}">
-                                                        <input type="hidden" name="point" value="${o.point}">
-                                                        <input type="hidden" name="image" value="${o.image}">
-                                                        <input type="hidden" name="quantity" value="${o.quantity}">
-                                                        <input type="hidden" name="buyQuantity" value="1"/>
-                                                        <button type="submit" class="button" name="action" value="home">
-                                                            Add to cart
-                                                            <div class="button__horizontal"></div>
-                                                            <div class="button__vertical"></div>
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </c:forEach>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Products popular  -->
-<!--  New Products  -->
-<!-- End New Products   -->
-
-
-
-
-<!-- Start Categories  -->
-<div class="categories-shop">
-    <div class="container">                <div class="title-all text-center">
-            <h1>Shop by Category</h1>
-        </div>
-        <div class="row justify-content-center display-flex  ">                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
-                <div class="shop-cat-box">
-                    <img class="img-fluid" style="height: 250px" src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=500" alt="" />
-                    <a class="btn hvr-hover" href="MainController?action=CategoryType&type=Sneakers">Sneakers</a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
-                <div class="shop-cat-box">
-                    <img class="img-fluid" style="height: 250px" src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=500" alt="" />
-                    <a class="btn hvr-hover" href="MainController?action=CategoryType&type=Boots">Boots</a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
-                <div class="shop-cat-box">
-                    <img class="img-fluid" style="height: 250px" src="https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=500" alt="" />
-                    <a class="btn hvr-hover" href="MainController?action=CategoryType&type=Formal">Formal Shoes</a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
-                <div class="shop-cat-box">
-                    <img class="img-fluid" style="height: 250px" src="https://i.ytimg.com/vi/f8KeA2Q3ZgM/maxresdefault.jpg" alt="" />
-                    <a class="btn hvr-hover" href="MainController?action=CategoryType&type=Phụ kiện khác">Other accessories</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<c:forEach items="${requestScope.LATEST_PRODUCTS}" var="pd">
-    <li class="splide__slide">
-        <div class="col-lg-12 col-md-12 special-grid best-seller">
-            <div class="products-single fix">
-                <div class="box-img-hover">
-                    <img src="${pd.image}" class="img-fluid" alt="Image" style="width: 100%; height: 200px; object-fit: cover">
-                </div>
-                <div class="why-text">
-                    <h4>${pd.name}</h4>
-                </div>
-            </div>
-        </div>
-    </li>
-</c:forEach>
+    </c:forEach>
 </ul>
 </div>
 </div>
@@ -563,13 +554,13 @@ End Products  -->
     <div class="modal-swp">
         <div class="modal-swp-message">
             <h3>${requestScope.SHOW_MODAL}</h3>
-            <button>Đóng</button>
+            <button>Close</button>
         </div>
     </div>
 </c:if>
 <!-- Start copyright  -->
 <div class="footer-copyright">
-    <p class="footer-company">All Rights Reserved. &copy; 2023 Design By : Team FE
+    <p class="footer-company">All Rights Reserved. &copy; 2025 Design By : Team GR6
 </div>
 <!-- End copyright  -->
 

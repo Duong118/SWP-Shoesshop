@@ -1,9 +1,8 @@
 <%-- 
-    Document   : comment
-    Created on : Jul 1, 2025, 1:46:23 PM
-    Author     : Admin
+    Document   : comment 
+    Created on : June 23, 2025, 12:41:30 PM
+    Author     : 
 --%>
-
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -106,11 +105,7 @@
                             <h1 class="text-white p-2">Shop Shoe</h1>
                         </div>
                         <div class="p-1 flex flex-row items-center">
-                            <!--              <img
-                                            class="inline-block h-8 w-8 rounded-full"
-                                            src="https://avatars0.githubusercontent.com/u/4323180?s=460&v=4"
-                                            alt=""
-                                          />-->
+                          
                         </div>
                     </div>
                 </header>

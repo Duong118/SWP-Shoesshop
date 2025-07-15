@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @author Duong
+ * @author 
  */
 @WebServlet(name = "ViewOrderController", urlPatterns = {"/ViewOrderController"})
-public class ViewOrderController extends HttpServlet {
+public class ViewOrderByStatusController extends HttpServlet {
 
     private static final String ERROR = "error.jsp";
     private static final String SUCCESS = "order.jsp";

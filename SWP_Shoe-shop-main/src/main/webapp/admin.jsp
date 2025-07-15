@@ -1,9 +1,8 @@
 <%-- 
     Document   : admin
-    Created on : Jul 1, 2025, 1:58:02 PM
+    Created on : Jun 29, 2025, 8:16:16 PM
     Author     : Admin
 --%>
-
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
@@ -96,6 +95,16 @@
                                     <span><i class="fa fa-angle-right float-right"></i></span> 
                                 </a> 
                             </li> 
+                            <li class="w-full h-full py-3 px-2 border-b border-light-border">
+                                <a 
+                                    href="SizeManagementController" 
+                                    class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline" 
+                                    > 
+                                    <i class="fas fa-ruler float-left mx-2"></i> 
+                                    Size Management 
+                                    <span><i class="fa fa-angle-right float-right"></i></span> 
+                                </a> 
+                            </li>
                             <li class="w-full h-full py-3 px-2 border-b border-light-border"> 
                                 <!--href="ViewOrderManagerController"--> 
                                 <div id="menu"> 

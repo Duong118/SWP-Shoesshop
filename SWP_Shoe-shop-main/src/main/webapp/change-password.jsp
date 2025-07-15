@@ -1,8 +1,3 @@
-<%-- 
-    Document   : change-password
-    Created on : Jul 1, 2025, 1:45:06 PM
-    Author     : Admin
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -37,10 +32,7 @@
         <link rel="stylesheet" href="css/custom.css">
 
         <link rel="stylesheet" href="css/sweetalertAccWarning.css">
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+
 
         <style>
             .swp-pagination{
@@ -92,7 +84,7 @@
                 cursor: pointer;
                 background: #B0B435;
                 color: #fff;
-}
+            }
             .modal-swp-message button:hover{
                 background: #000
             }
@@ -144,10 +136,7 @@
                             <div class="login-box" style="margin-right: 20px">
                                 <a href="login.jsp" style="color: white;font-weight: bold">Login/</a>
                                 <a href="register.jsp" style="color: white; position: absolute;font-weight: bold">Register</a>
-<!--                            <select id="basic" class="selectpicker show-tick form-control" data-placeholder="Sign In">
-                                                                <option>Register</option>
-                                                                <option>Login</option>
-                                                            </select>-->
+                               
                             </div>
                         </c:if>
                         <div class="text-slid-box">
@@ -192,7 +181,7 @@
                                 <a href="MainController?action=GetFullProducts" class="nav-link">Products</a>                           
                             </li>
                             <li class="nav-item"><a class="nav-link" href="MainController?action=GetBlogs">Blog</a></li>
-<li class="nav-item"><a class="nav-link" href="contact-us.jsp">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact-us.jsp">Contact</a></li>
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
@@ -244,18 +233,18 @@
                             <h2 style="font-size: 20px; margin-top: 15px">Confirm new password</h2>
                             <input type="password" placeholder="Confirmed Password" id="confirmed_password" class="form-control" name="confirmedPassword" style="font-size: 16px" required/>
                             <button class="btn btn-dark mt-5" type="submit" name="action" value="ChangePassword" style="font-size: 16px">Confirm </button>
-</form>
+                        </form>
                     </div>
                 </div>
             </c:if>
         </div>
         <!--End form-->
         <c:if test="${requestScope.MESSAGE != null}">
-        <div class="container mt-2 px-lg-0">
-            <h1 class="m-5" style="font-size:25px; color: green">${requestScope.MESSAGE}</h1>
-        </div>
+            <div class="container mt-2 px-lg-0">
+                <h1 class="m-5" style="font-size:25px; color: green">${requestScope.MESSAGE}</h1>
+            </div>
         </c:if>
-        
+
         <!-- Start Footer  -->
         <!-- Start Footer  -->
         <footer>
@@ -298,7 +287,7 @@
                             </div>
                         </div>
                     </div>
-<hr>
+                    <hr>
                     <div class="row">
                         <div class="col-lg-4 col-md-12 col-sm-12">
                             <div class="footer-link-contact">
@@ -316,17 +305,17 @@
                                 </ul>
                             </div>
                         </div>
-                            <div class="footer-link-contact">
-                                <iframe 
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.0533542574994!2d105.72985131138422!3d10.012451790052275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a0882139720a77%3A0x3916a227d0b95a64!2sFPT%20University!5e0!3m2!1svi!2s!4v1750843383851!5m2!1svi!2s" 
-                                    width="100%" 
-                                    height="230" 
-                                    style="border:0;" 
-                                    allowfullscreen="" 
-                                    loading="lazy" 
-                                    referrerpolicy="no-referrer-when-downgrade">
-                                </iframe>
-                            </div>
+                        <div class="footer-link-contact">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.0533542574994!2d105.72985131138422!3d10.012451790052275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a0882139720a77%3A0x3916a227d0b95a64!2sFPT%20University!5e0!3m2!1svi!2s!4v1750843383851!5m2!1svi!2s" 
+                                width="100%" 
+                                height="230" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -358,7 +347,7 @@
         <script src="js/jquery.nicescroll.min.js"></script>
         <script src="js/form-validator.min.js"></script>
         <script src="js/contact-form-script.js"></script>
-<script src="js/custom.js"></script>
+        <script src="js/custom.js"></script>
         <script src="js/sweetalert.min.js"></script>
         <script src="js/sweetalertAccWarning.js"></script>
     </body>

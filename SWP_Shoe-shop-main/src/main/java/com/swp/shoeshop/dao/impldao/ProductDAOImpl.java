@@ -1168,4 +1168,69 @@ public class ProductDAOImpl {
         }
         return total;
     }
+
+    /**
+     * Get all products with total quantity from product_size table
+     * @return list of products with calculated total quantity
+     * @throws SQLException if database error occurs
+     */
+    public List<Product> viewAllProductWithQuantity() throws SQLException {
+        List<Product> listProduct = new ArrayList<>();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        String sql = "SELECT p.id, p.name, p.image, p.original_price, p.discount_price, p.description, " +
+                    "p.short_description, p.point, p.cate_id, p.created_date, p.status, p.isHot, " +
+                    "COALESCE(SUM(ps.quantity), 0) as total_quantity " +
+                    "FROM product p " +
+                    "LEFT JOIN product_size ps ON p.id = ps.product_id AND ps.is_available = 1 " +
+                    "GROUP BY p.id, p.name, p.image, p.original_price, p.discount_price, p.description, " +
+                    "p.short_description, p.point, p.cate_id, p.created_date, p.status, p.isHot " +
+                    "ORDER BY p.id";
+        
+        try {
+            conn = DBConnect.getInstance().getConnection();
+            if (conn != null) {
+                ps = conn.prepareStatement(sql);
+                rs = ps.executeQuery();
+                while (rs.next()) {
+                    // Create Product with all fields including the calculated quantity
+                    Product product = new Product(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("image"),
+                        rs.getInt("original_price"),
+                        rs.getInt("discount_price"),
+                        rs.getString("description"),
+                        rs.getString("short_description"),
+                        rs.getInt("point"),
+                        rs.getInt("cate_id"),
+                        rs.getDate("created_date"),
+                        ProductStatus.valueOf(rs.getString("status")),
+                        rs.getBoolean("isHot")
+                    );
+                    
+                    // Set the total quantity as a transient field
+                    // We'll add this field to the Product model
+                    product.setQuantity(rs.getInt("total_quantity"));
+                    
+                    listProduct.add(product);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return listProduct;
+    }
 }

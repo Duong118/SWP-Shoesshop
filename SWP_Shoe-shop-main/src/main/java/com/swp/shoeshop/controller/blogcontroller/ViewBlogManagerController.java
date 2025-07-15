@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Thuong
+ * @author 
  */
 @WebServlet(name = "ViewBlogManagerController", urlPatterns = {"/ViewBlogManagerController"})
 public class ViewBlogManagerController extends HttpServlet {

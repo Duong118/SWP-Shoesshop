@@ -1,9 +1,3 @@
-<%-- 
-    Document   : shop-detail
-    Created on : Jul 1, 2025, 1:09:08 PM
-    Author     : linh
---%>
-
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -42,10 +36,7 @@
         <link rel="stylesheet" href="css/sweetalertAccWarning.css">
 
         <link rel="stylesheet" href="css/starrating.css">
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+
         <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
         <style>
             .swp-btn{
@@ -699,7 +690,7 @@
 
 <!-- Start copyright  -->
 <div class="footer-copyright">
-    <p class="footer-company">All Rights Reserved. &copy; 2023 Design By : Team FE
+    <p class="footer-company">All Rights Reserved. &copy; 2025 Design By : Team GR6
 </div>
 <!-- End copyright  -->
 

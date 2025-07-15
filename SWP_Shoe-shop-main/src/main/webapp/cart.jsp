@@ -1,9 +1,3 @@
-<%-- 
-    Document   : cart
-    Created on : Jul 1, 2025, 1:43:25 PM
-    Author     : Admin
---%>
-
 
 <%@page import="com.swp.shoeshop.model.Cart"%>
 <%@page import="com.swp.shoeshop.model.CartItem"%>
@@ -285,8 +279,7 @@
                                 </div>
                             </div>
                         </div>
-                        <h3 style="width: 100%; display: block; text-align: right">Tổng số lượng sản phẩm: ${sessionScope.TOTAL_QUANTITY}</h3>
-
+                        <h3 style="width: 100%; display: block; text-align: right">Total quantity of products: ${sessionScope.TOTAL_QUANTITY}</h3>
                         <div class="row my-5" style="display: flex;
                              justify-content: space-between;">
                             <div></div>
@@ -410,7 +403,7 @@
 
         <!-- Start copyright  -->
         <div class="footer-copyright">
-            <p class="footer-company">All Rights Reserved. &copy; 2023 Design By : Team FE
+            <p class="footer-company">All Rights Reserved. &copy; 2025 Design By : Team GR6
         </div>
         <!-- End copyright  -->
 

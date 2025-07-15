@@ -29,6 +29,87 @@
             .show-swp-icon{
                 transform: rotate(90deg)
             }
+
+            /* Size selection styles */
+            .size-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+                gap: 8px;
+                max-width: 500px;
+            }
+
+            .size-option {
+                width: 100%;
+            }
+
+            .size-label {
+                display: block;
+                width: 50px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                border: 2px solid #d1d5db;
+                border-radius: 6px;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                font-weight: 500;
+                font-size: 14px;
+                background-color: white;
+            }
+
+            .size-checkbox:checked + .size-label,
+            .size-radio:checked + .size-label {
+                background-color: #3b82f6;
+                color: white;
+                border-color: #3b82f6;
+                transform: scale(1.05);
+            }
+
+            .size-label:hover {
+                border-color: #3b82f6;
+                background-color: #f8fafc;
+            }
+
+            .size-checkbox:checked + .size-label:hover,
+            .size-radio:checked + .size-label:hover {
+                background-color: #2563eb;
+            }
+
+            .size-quantity-input {
+                width: 100%;
+                padding: 8px 12px;
+                border: 1px solid #d1d5db;
+                border-radius: 6px;
+                font-size: 14px;
+                transition: border-color 0.2s ease;
+            }
+
+            .size-quantity-input:focus {
+                outline: none;
+                border-color: #3b82f6;
+                box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            }
+
+            .size-quantities-section {
+                background: linear-gradient(to bottom, #f8fafc, #f1f5f9);
+                border: 1px solid #e2e8f0;
+                border-radius: 8px;
+                padding: 16px;
+            }
+
+            .quantity-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 12px;
+            }
+
+            .quantity-item {
+                background: white;
+                padding: 10px;
+                border-radius: 6px;
+                border: 1px solid #e2e8f0;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            }
         </style>
     </head>
 
@@ -51,6 +132,7 @@
                                                            <h1 class="text-white p-2">Shoes Shop</h1>
                                                        </div>
                                                        <div class="p-1 flex flex-row items-center">
+
                                                        </div>
                                                    </div>
                                                </header>
@@ -134,7 +216,7 @@
                                                                    class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline"
                                                                    >
                                                                    <i class="fas fa-square-full float-left mx-2"></i>
-                                                                   Log out
+                                                                   Logout
                                                                    <span><i class="fa fa-angle-right float-right"></i></span>
                                                                </a>
                                                            </li>
@@ -158,12 +240,12 @@
                                                                        >
                                                                        Add new product                                                                   </div>                               
                                                                    <div class="p-3">
-                                                                       <form class="w-full" action="MainController" onsubmit="return cateAlert()">
+                                                                       <form class="w-full" action="CreateProductController" method="POST" onsubmit="return cateAlert() && validateSizeSelection()">
                                                                            <div class="flex flex-wrap -mx-3 mb-6">
                                                                                <!-- full input -->
                                                                                <div class="w-full px-3 mb-2">
                                                                                    <div class="pass-link">
-                                                                                       <a>${requestScope.PRODUCT_ERROR}</a>
+                                                                                       <a style="color: red;">${requestScope.PRODUCT_ERROR}${sessionScope.PRODUCT_ERROR}</a>
                                                                                </div>
                                                                            </div>
                                                                            <div class="w-full md:w-full px-3" style="display:inline-block">
@@ -171,33 +253,82 @@
                                                                                    class="block uppercase tracking-wide text-gray-900 text-sm font-medium mb-1"
                                                                                    for="name"
                                                                                    >
-                                                                                   Product name </label> 
-                                                                               <input 
-                                                                                   class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600" 
-                                                                                   id="name" 
-                                                                                   name="name" 
-                                                                                   type="text" 
-                                                                                   placeholder="Enter the name of the product" 
-                                                                                   value = "${param.name}" 
-                                                                                   required; required; 
-                                                                                   > 
-                                                                           </div> 
-                                                                           <!-- double input --> 
-                                                                           <div class="w-full md:w-1/4 px-3" style="display:inline-block"> 
-                                                                               <label 
-                                                                                   class="block uppercase tracking-wide text-gray-900 text-sm font-medium mb-1" 
-                                                                                   for="quantity" 
-                                                                                   > 
-                                                                                   Quantity </label> 
-                                                                               <input 
-                                                                                   class="appearance-none block w-full bg-gray-200 text-grey-darker border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600" 
-                                                                                   id="quantity" 
-                                                                                   type="number" 
-                                                                                   name="quantity" 
-                                                                                   placeholder="Enter product quantity" 
-                                                                                   value="${param.quantity}" 
-                                                                                   required; required; 
-                                                                                   > 
+                                                                                   Product Name
+                                                                               </label>
+                                                                               <input
+                                                                                   class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600"
+                                                                                   id="name"
+                                                                                   name="name"
+                                                                                   type="text"
+                                                                                   placeholder="Nhập tên của sản phẩm"         
+                                                                                   value ="${param.name}"
+                                                                                   required;
+                                                                                   >
+                                                                           </div>
+                                                                           <!-- double input -->
+                                                                           <div class="w-full md:w-1/4 px-3" style="display:inline-block">
+                                                                               <label
+                                                                                   class="block uppercase tracking-wide text-gray-900 text-sm font-medium mb-1"
+                                                                                   for="quantity"
+                                                                                   >
+                                                                                   Quantity
+                                                                               </label>
+                                                                               <input
+                                                                                   class="appearance-none block w-full bg-gray-200 text-grey-darker border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600"
+                                                                                   id="quantity"
+                                                                                   type="number"
+                                                                                   name="quantity"
+                                                                                   placeholder="Nhập số lượng sản phẩm"
+                                                                                   value="${param.quantity}"
+                                                                                   required;
+                                                                                   >
+                                                                           </div>
+                                                                           <!-- Size Selection Section -->
+                                                                           <div class="w-full px-3 mb-6">
+                                                                               <label class="block uppercase tracking-wide text-gray-900 text-sm font-medium mb-3">
+                                                                                   Size Shoes <span style="color: red;">*</span>
+                                                                                   <small class="text-gray-600 normal-case block mt-1">(Chọn một size và nhập số lượng)</small>
+                                                                               </label>
+
+                                                                               <!-- Size Selection as Radio Buttons -->
+                                                                               <div class="size-grid mb-4">
+                                                                                   <c:forEach var="size" items="${ALL_SIZES}">
+                                                                                       <div class="size-option">
+                                                                                           <input type="radio" 
+                                                                                                  id="size_${size.id}" 
+                                                                                                  name="selectedSize" 
+                                                                                                  value="${size.id}"
+                                                                                                  class="hidden size-radio"
+                                                                                                  onchange="updateSizeQuantity(this, '${size.sizeName}')">
+                                                                                           <label for="size_${size.id}" class="size-label">
+                                                                                               ${size.sizeName}
+                                                                                           </label>
+                                                                                       </div>
+                                                                                   </c:forEach>
+                                                                               </div>
+
+                                                                               <!-- Single Size Quantity Input -->
+                                                                               <div id="size-quantity" class="size-quantities-section" style="display: none;">
+                                                                                   <h4 class="text-sm font-semibold mb-3 text-gray-700 flex items-center">
+                                                                                       <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                                                       <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                                                                       </svg>
+                                                                                       Quantity for selected size:
+                                                                                   </h4>
+                                                                                   <div class="quantity-item" style="max-width: 200px;">
+                                                                                       <label id="size-quantity-label" class="block text-xs font-medium mb-2 text-gray-600 uppercase tracking-wide">
+                                                                                           Size
+                                                                                       </label>
+                                                                                       <input type="number" 
+                                                                                              name="sizeQuantity" 
+                                                                                              id="sizeQuantityInput"
+                                                                                              class="size-quantity-input" 
+                                                                                              placeholder="Số lượng" 
+                                                                                              min="1" 
+                                                                                              value="1"
+                                                                                              required>
+                                                                                   </div>
+                                                                               </div>
                                                                            </div>
                                                                            <div
                                                                                class="w-full md:w-1/4 px-3 mb-6 md:mb-0 relative"
@@ -206,16 +337,16 @@
                                                                                    class="block uppercase tracking-wide text-gray-900 text-sm font-medium mb-1"
                                                                                    for="originalPrice"
                                                                                    >
-                                                                                   Price 
-                                                                               </label> 
-                                                                               <input 
-                                                                                   class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600" 
-                                                                                   id="originalPrice" 
-                                                                                   type="number" 
-                                                                                   name="originalPrice" 
-                                                                                   placeholder="Enter product price" 
-                                                                                   required. required 
-                                                                                   value="${param.originalPrice}" 
+                                                                                   Price
+                                                                               </label>
+                                                                               <input
+                                                                                   class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600"
+                                                                                   id="originalPrice"
+                                                                                   type="number"
+                                                                                   name="originalPrice"
+                                                                                   placeholder="Nhập giá của sản phẩm"
+                                                                                   required
+                                                                                   value="${param.originalPrice}"
                                                                                    >
                                                                            </div>
                                                                            <div class="w-full md:w-1/4 px-3" style="display:inline-block">
@@ -224,16 +355,16 @@
                                                                                    for="point"
                                                                                    required;
                                                                                    >
-                                                                                   Coin 
-                                                                               </label> 
-                                                                               <input 
-                                                                                   class="appearance-none block w-full bg-gray-200 text-grey-darker border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600" 
-                                                                                   id="point" 
-                                                                                   type="number" 
-                                                                                   name="point" 
-                                                                                   placeholder="Enter coin for product" 
-                                                                                   required; required; 
-                                                                                   value="${param.point}" 
+                                                                                   Coin
+                                                                               </label>
+                                                                               <input
+                                                                                   class="appearance-none block w-full bg-gray-200 text-grey-darker border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600"
+                                                                                   id="point"
+                                                                                   type="number"
+                                                                                   name="point"
+                                                                                   placeholder="Nhập xu cho sản phẩm"
+                                                                                   required;
+                                                                                   value="${param.point}"
                                                                                    >
                                                                            </div> 
                                                                            <div
@@ -243,24 +374,25 @@
                                                                                    class="block uppercase tracking-wide text-gray-900 text-sm font-medium mb-1"
                                                                                    for="discountPrice"
                                                                                    >
-                                                                                   Price reduced 
-                                                                                   <input type="checkbox" name="dis" id="dis" onclick="myDiscount()" value="checked"<c:if test="${checked}">checked</c:if>> 
-                                                                                   </label> 
-                                                                                   <input 
-                                                                                       class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600" 
-                                                                                       id = "discountPrice" 
-                                                                                       type="number" 
-                                                                                       name="discountPrice" 
-                                                                                       placeholder="Enter discount price" 
-                                                                                       style="display:none" 
-                                                                                       value="${param.discountPrice}" 
+                                                                                   Price reduction
+                                                                                   <input type="checkbox" name="dis" id="dis" onclick="myDiscount()" value="checked"<c:if test="${checked}">checked</c:if>>
+                                                                                   </label>
+                                                                                   <input
+                                                                                       class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600"
+                                                                                       id ="discountPrice"
+                                                                                       type="number"
+                                                                                       name="discountPrice"                                     
+                                                                                       placeholder="Nhập giá discount"
+                                                                                       style="display:none"
+                                                                                       value="${param.discountPrice}"
                                                                                    >
                                                                            </div>
                                                                            <!--  -->
                                                                            <br>
                                                                            <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
                                                                                <label class="block uppercase tracking-wide text-gray-900 text-sm font-medium mb-1" for="catetype">
-                                                                                   Classify                                                                               </label>
+                                                                                   Classify
+                                                                               </label>
                                                                                <div class="relative">
                                                                                    <select class="block appearance-none w-full bg-grey-200 border border-grey-200 text-grey-darker py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-grey" id="catetype" name="catetype">
                                                                                        <option value="" ${empty param.catetype ? 'selected' : ''} hidden>Chọn</option>
@@ -272,29 +404,29 @@
                                                                            </div>
                                                                            <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0" id="categoryname" style="visibility: hidden">
                                                                                <label class="block uppercase tracking-wide text-gray-900 text-sm font-medium mb-1" for="catename">
-                                                                                   Category <p id="smallCategory" style="display: inline-block"></p> 
-                                                                               </label> 
-                                                                               <div class="related"> 
-                                                                                   <select class="block appearance-none w-full bg-grey-200 border border-grey-200 text-grey-darker py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-grey" id="catename" name="catename"> 
-                                                                                       <option hidden>Select</option> 
-                                                                                       <c:forEach var="ct" items="${sessionScope.VIEW_CATE}"> 
+                                                                                   Classify <p id="smallCategory" style="display: inline-block"></p>
+                                                                               </label>
+                                                                               <div class="relative">
+                                                                                   <select class="block appearance-none w-full bg-grey-200 border border-grey-200 text-grey-darker py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-grey" id="catename" name="catename">
+                                                                                       <option hidden>Chọn</option>
+                                                                                       <c:forEach var="ct" items="${sessionScope.VIEW_CATE}">
                                                                                            <option class="catenameopt" value="${ct.name}" 
-                                                                                                   <c:choose> 
-                                                                                                       <c:when test ="${param.catename=='Other' && newCate==true}">selected</c:when> 
+                                                                                                   <c:choose>
+                                                                                                       <c:when test ="${param.catename=='Khác' && newCate==true}">selected</c:when>
                                                                                                        <c:otherwise>${param.catename == ct.name ? 'selected' : ''}</c:otherwise> 
-                                                                                                   </c:choose> 
-                                                                                                   >${ct.name}</option> 
-                                                                                       </c:forEach> 
-                                                                                       <option value="Other" id="other">Other</option> 
+                                                                                                   </c:choose>
+                                                                                                   >${ct.name}</option>
+                                                                                       </c:forEach>
+                                                                                       <option value="Khác" id="other">Other</option>
                                                                                    </select>
                                                                                </div>
                                                                            </div>
                                                                            <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0" style="visibility: hidden" id="newcatename">
                                                                                <label class="block uppercase tracking-wide text-gray-900 text-sm font-medium mb-1" for="newcate">
-                                                                                   Other type 
-                                                                               </label> 
+                                                                                   Other
+                                                                               </label>
                                                                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600" 
-                                                                                      type="text" name="newcatename" id="newcate" value = "${param.newcatename}" placeholder="Enter another type" 
+                                                                                      type="text" name="newcatename" id="newcate" value = "${param.newcatename}" placeholder="Nhập loại khác" 
                                                                                       >
                                                                            </div>
 
@@ -309,7 +441,7 @@
                                                                                    class="block uppercase tracking-wide text-gray-900 text-sm font-medium mb-1"
                                                                                    for="img"
                                                                                    >
-                                                                                   Image
+                                                                                   Ảnh
                                                                                </label>
                                                                                <input
                                                                                    class="appearance-none inline-block w-full bg-gray-200 text-grey-darker border border-gray-200 rounded py-3 px- leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600"
@@ -317,7 +449,8 @@
                                                                                    type="text"
                                                                                    name="img"
                                                                                    value="${param.img}"
-                                                                                   placeholder="Enter a link to the product image"                                                                                   style=" padding-left: 1rem; padding-right: 1rem;"
+                                                                                   placeholder="Nhập liên kết đến ảnh của sản phẩm"
+                                                                                   style=" padding-left: 1rem; padding-right: 1rem;"
                                                                                    required;
                                                                                    >
                                                                            </div>
@@ -335,7 +468,8 @@
                                                                                        type="text"
                                                                                        name="videolink"
                                                                                        value="${param.videolink}"
-                                                                                   placeholder="Enter link to product video"                                                                                   style=" padding-left: 1rem; padding-right: 1rem; display: none"
+                                                                                   placeholder="Nhập liên kết đến video của sản phẩm"
+                                                                                   style=" padding-left: 1rem; padding-right: 1rem; display: none"
                                                                                    >
                                                                            </div>
                                                                            <!-- end double input -->
@@ -345,37 +479,37 @@
                                                                                    for="shortdescript"
                                                                                    class="block uppercase tracking-wide text-gray-900 text-sm font-medium mb-1"
                                                                                    style="margin-top: 10px"
-                                                                                   >Product description</label> 
-                                                                               <textarea 
-                                                                                   name="shortdescription" 
-                                                                                   id="shortdescription" 
-                                                                                   rows="4" 
-                                                                                   class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600" 
-                                                                                   placeholder="Product description" 
-                                                                                   required. required 
-                                                                                   >${param.shortdescript}</textarea> 
-                                                                           </div> 
-                                                                           <div class="w-full flex flex-wrap md:w-2/3 -mx-3 mb-2 px-3" style="margin-left: 12px"> 
-                                                                               <label 
-                                                                                   for="description" 
-                                                                                   class="block uppercase tracking-wide text-gray-900 text-sm font-medium mb-1" 
-                                                                                   style="margin-top: 10px" 
-                                                                                   >Product details</label> 
-                                                                               <textarea 
-                                                                                   name="description" 
-                                                                                   id="description" 
-                                                                                   rows="4" 
-                                                                                   class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600" 
-                                                                                   placeholder="Product description" 
-                                                                                   required. required 
-                                                                                   >${param.description}</textarea> 
-                                                                           </div> 
-                                                                           <div class="w-full md:w-full px-3" style="display:inline-block"> 
-                                                                               <button 
-                                                                                   type="submit" name="action" value="CreateProduct" 
-                                                                                   class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded text-sm px-2 py-1 mb-1 block float-right" 
-                                                                                   > 
-                                                                                   Confirm</button> 
+                                                                                   >Mô tả sản phẩm</label>
+                                                                               <textarea
+                                                                                   name="shortdescript"
+                                                                                   id="shortdescript"
+                                                                                   rows="4"
+                                                                                   class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600"
+                                                                                   placeholder="Mô tả sản phẩm"
+                                                                                   required
+                                                                                   >${param.shortdescript}</textarea>
+                                                                           </div>
+                                                                           <div class="w-full flex flex-wrap md:w-2/3 -mx-3 mb-2 px-3" style="margin-left: 12px">                                                  
+                                                                               <label
+                                                                                   for="description"
+                                                                                   class="block uppercase tracking-wide text-gray-900 text-sm font-medium mb-1"
+                                                                                   style="margin-top: 10px"
+                                                                                   >Chi tiết sản phẩm</label>
+                                                                               <textarea
+                                                                                   name="description"
+                                                                                   id="description"
+                                                                                   rows="4"
+                                                                                   class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white-500 focus:border-gray-600"
+                                                                                   placeholder="Mô tả sản phẩm"
+                                                                                   required
+                                                                                   >${param.description}</textarea>
+                                                                           </div>
+                                                                           <div class="w-full md:w-full px-3" style="display:inline-block">
+                                                                               <button
+                                                                                   type="submit" name="action" value="CreateProduct"
+                                                                                   class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded text-sm px-2 py-1 mb-1 block float-right"
+                                                                                   >
+                                                                                   Xác nhận</button>
                                                                            </div>
                                                                            <!--/Grid Form-->
                                                                        </div>
@@ -397,6 +531,53 @@
                                        </div>
                                    </div>
 
+                                   <script>
+                                       let selectedSize = null;
+
+                                       function updateSizeQuantity(radio, sizeName) {
+                                           const sizeId = radio.value;
+                                           const sizeQuantityDiv = document.getElementById('size-quantity');
+                                           const sizeQuantityLabel = document.getElementById('size-quantity-label');
+                                           const sizeQuantityInput = document.getElementById('sizeQuantityInput');
+
+                                           if (radio.checked) {
+                                               selectedSize = sizeId;
+
+                                               // Update label and show quantity input
+                                               sizeQuantityLabel.textContent = `Size ${sizeName}`;
+                                               sizeQuantityInput.value = '1'; // Default quantity
+
+                                               // Show size quantity section with animation
+                                               sizeQuantityDiv.style.display = 'block';
+                                               setTimeout(() => {
+                                                   sizeQuantityDiv.style.opacity = '1';
+                                                   sizeQuantityDiv.style.transform = 'translateY(0)';
+                                               }, 10);
+
+                                               // Hide the main quantity input row since we'll use size-specific quantity
+                                               const quantityRow = document.getElementById('quantity').closest('.w-full');
+                                               quantityRow.style.display = 'none';
+                                               document.getElementById('quantity').removeAttribute('required');
+                                           }
+                                       }
+
+                                       // Validate form before submission
+                                       function validateSizeSelection() {
+                                           if (!selectedSize) {
+                                               alert('Vui lòng chọn một size cho sản phẩm!');
+                                               return false;
+                                           }
+
+                                           // Validate that quantity is entered
+                                           const quantityInput = document.getElementById('sizeQuantityInput');
+                                           if (!quantityInput || !quantityInput.value || quantityInput.value <= 0) {
+                                               alert('Vui lòng nhập số lượng hợp lệ cho size đã chọn!');
+                                               return false;
+                                           }
+
+                                           return true;
+                                       }
+                                   </script>
                                    <script src="main.js"></script>
                                    <script src ="js/addeditpro.js"></script>
     </body>

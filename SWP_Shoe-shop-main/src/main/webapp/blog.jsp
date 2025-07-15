@@ -1,9 +1,8 @@
 <%-- 
     Document   : blog
-    Created on : Jun 30, 2025, 9:21:21 PM
-    Author     : Thuong
+    Created on : Jun 29, 2025, 10:31:14 PM
+    Author     : Admin
 --%>
-
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -120,12 +119,12 @@
                     <div class="collapse navbar-collapse" id="navbar-menu"> 
                         <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp"> 
                             <li class="nav-item"><a class="nav-link" href="MainController?action=Home">Home</a></li> 
-                            <li class="nav-item"><a class="nav-link" href="about.jsp">Introduction</a></li> 
+                            <li class="nav-item"><a class="nav-link" href="about.jsp">About Us</a></li> 
                             <li class="dropdown"> 
-                                <a href="MainController?action=GetFullProducts" class="nav-link">Products</a> 
+                                <a href="MainController?action=GetFullProducts" class="nav-link">Shoes</a> 
                             </li> 
                             <li class="nav-item active"><a class="nav-link" href="MainController?action=GetBlogs">Blog</a></li> 
-                            <li class="nav-item"><a class="nav-link" href="contact-us.jsp">Contact system</a></li> 
+                            <li class="nav-item"><a class="nav-link" href="contact-us.jsp">Contact</a></li> 
                         </ul> 
                     </div>
                     <!-- /.navbar-collapse -->
@@ -138,7 +137,7 @@
                                 <a href="MainController?action=GetCart">
                                     <i class="fa fa-shopping-cart"></i>
                                     <span class="badge">${sessionScope.QUANTITY_IN_CART}</span>
-                                    <p>Cart</p>
+                                    <p>Shopping Cart</p>
                                 </a>
                             </li>
                         </ul>
@@ -325,7 +324,7 @@
 
         <!-- Start copyright  -->
         <div class="footer-copyright">
-            <p class="footer-company">All Rights Reserved. &copy; 2023 Design By : Team FE
+            <p class="footer-company">All Rights Reserved. &copy; 2025 Design By : Team GR6
         </div>
         <!-- End copyright  -->
 

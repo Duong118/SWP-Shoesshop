@@ -1,10 +1,8 @@
 <%-- 
     Document   : shop
-    Created on : Jul 1, 2025, 1:10:24 PM
-    Author     : linh
+    Created on : Jun 26, 2025, 12:48:19 PM
+    Author     : Admin
 --%>
-
-
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
@@ -192,9 +190,9 @@
                     <div class="collapse navbar-collapse" id="navbar-menu">
                         <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
                             <li class="nav-item"><a class="nav-link" href="MainController?action=Home">Home</a></li> 
-                            <li class="nav-item"><a class="nav-link" href="about.jsp">Introduction</a></li> 
+                            <li class="nav-item"><a class="nav-link" href="about.jsp">About Us</a></li> 
                             <li class="dropdown active"> 
-                                <a href="MainController?action=GetFullProducts" class="nav-link">Products</a> 
+                                <a href="MainController?action=GetFullProducts" class="nav-link">Shoes</a> 
                             </li> 
                             <li class="nav-item"><a class="nav-link" href="MainController?action=GetBlogs">Blog</a></li> 
                             <li class="nav-item"><a class="nav-link" href="contact-us.jsp">Contact</a></li> 
@@ -209,7 +207,7 @@
                                 <a href="MainController?action=GetCart">
                                     <i class="fa fa-shopping-cart"></i>
                                     <span class="badge">${sessionScope.QUANTITY_IN_CART}</span>
-                                    <p>Cart</p>                                
+                                    <p>Shopping Cart</p>                                
                                 </a>
                             </li>
                         </ul>
@@ -345,17 +343,17 @@
                             </div>
                         </div>
                         <div class="col-lg-8 col-md-12 col-sm-12">
-                            <div class="footer-link-contact">
-                                <iframe 
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.0533542574994!2d105.72985131138422!3d10.012451790052275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a0882139720a77%3A0x3916a227d0b95a64!2sFPT%20University!5e0!3m2!1svi!2s!4v1750843383851!5m2!1svi!2s" 
-                                    width="100%" 
-                                    height="230" 
-                                    style="border:0;" 
-                                    allowfullscreen="" 
-                                    loading="lazy" 
-                                    referrerpolicy="no-referrer-when-downgrade">
-                                </iframe>
-                            </div>
+<div class="footer-link-contact">
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.0533542574994!2d105.72985131138422!3d10.012451790052275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a0882139720a77%3A0x3916a227d0b95a64!2sFPT%20University!5e0!3m2!1svi!2s!4v1750843383851!5m2!1svi!2s" 
+        width="100%" 
+        height="230" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
 
                         </div>
                     </div>
@@ -375,7 +373,7 @@
 
         <!-- Start copyright  -->
         <div class="footer-copyright">
-            <p class="footer-company">All Rights Reserved. &copy; 2022 Design By : Team FE
+            <p class="footer-company">All Rights Reserved. &copy; 2025 Design By : Team GR6
         </div>
         <!-- End copyright  -->
 

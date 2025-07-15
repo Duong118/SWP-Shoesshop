@@ -1,8 +1,4 @@
-<%-- 
-    Document   : shop-detail
-    Created on : Sep 27, 2022, 12:46:37 PM
-    Author     : thangbv
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -14,7 +10,7 @@
 
     <body>
         
-        <button class="first">    Tài khoản                                        </button>
+        <button class="first">    Account                                       </button>
 
 
         <script src="js/sweetalert2Comment.js"></script>

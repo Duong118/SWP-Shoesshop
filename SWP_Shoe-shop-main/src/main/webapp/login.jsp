@@ -65,9 +65,7 @@
                     <div style="margin-bottom: 20px">
                         <input type="checkbox" ${(cookie.n4m3 != null ? 'checked':'')} name="remember" value="ON" style="margin-top: 20px"> Remember me</br>
                     </div>
-                    <!-- reCAPTCHA -->
-                    <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LdV2rYiAAAAAHIWwgyEDv4N4a99m0EBDXPM-5vs" style="margin: 0 auto; margin-top: 20px">
-                    </div>
+                    
                     <div class="field btn">
                         <div class="btn-layer"></div>
                         <button style = "color: #fff; height: 100%; width: 100%; z-index: 1; position: relative; background: none; border: none; padding-left: 0; border-radius: 5px; font-size: 20px; font-weight: 500; cursor: pointer" type="submit" name="action" value="Login">Sign In</button>
